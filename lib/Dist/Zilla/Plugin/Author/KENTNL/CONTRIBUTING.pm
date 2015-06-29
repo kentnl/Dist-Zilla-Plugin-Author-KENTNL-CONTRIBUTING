@@ -81,7 +81,7 @@ sub _convert_pod_txt {
   require Pod::Text;
   my $parser = Pod::Text->new( loose => 1 );
   $parser->output_fh( $target->openw_utf8 );
-  $parser->parse_fh( $source->openr_utf8 );
+  $parser->parse_file( $source->openr_utf8 );
 }
 
 sub _convert_pod_mkdn {
@@ -90,7 +90,7 @@ sub _convert_pod_mkdn {
   Pod::Markdown->VERSION('2.000');
   my $parser = Pod::Markdown->new();
   $parser->output_fh( $target->openw_utf8 );
-  $parser->parse_fh( $source->openr_utf8 );
+  $parser->parse_file( $source->openr_utf8 );
 }
 
 1;
