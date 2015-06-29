@@ -20,7 +20,6 @@ misc/Changes.deps.dev
 misc/Changes.deps.opt
 misc/built_with.json
 misc/perlcritic.deps
-perlcritic.deps
 perlcritic.rc
 share/contributing-0.1.pod
 t/00-compile/lib_Dist_Zilla_Plugin_Author_KENTNL_CONTRIBUTING_pm.t
