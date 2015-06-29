@@ -159,11 +159,3 @@ This will possibly require installing the following, which are not strictly requ
 
     Dist::Zilla::PluginBundle::Author::KENTNL
     Dist::Zilla::App::Command::bakeini
-
-# POD ERRORS
-
-Hey! **The above document had some coding errors, which are explained below:**
-
-- Around line 165:
-
-    Non-ASCII character seen before =encoding in 'façade.'. Assuming CP1252
