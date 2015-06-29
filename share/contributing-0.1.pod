@@ -17,7 +17,7 @@
 
 =item * L</Patching documentation>
 
-=item * L</Installing and using Dist::Zilla>
+=item * L</Installing and using DistZilla>
 
 =back
 
@@ -83,7 +83,7 @@ the documentation you see.
 If you see typos or documentation issues in the generated docs, please
 email or open a bug ticket instead of patching.
 
-=head2 Installing and using Dist::Zilla
+=head2 Installing and using DistZilla
 
 Dist::Zilla is a very powerful authoring tool, optimized for maintaining a
 large number of distributions with a high degree of automation, but it has a
