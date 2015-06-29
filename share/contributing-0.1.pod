@@ -1,4 +1,4 @@
-=head1 TOC
+=head1 CONTENTS
 
 =over 4
 
@@ -17,6 +17,14 @@
 =item * L</Installing and using Dist::Zilla>
 
 =back
+
+=item * L</OTHER SHORTCUTS>
+
+=over 4
+
+=item * L</Install and Test using a pre-made build branch>
+
+=item * L<< /Locally Patch C<dist.ini> >>
 
 =back
 
@@ -103,3 +111,13 @@ Once installed, here are some dzil commands you might try:
     $ dzil xtest
 
 You can learn more about Dist::Zilla at http://dzil.org/
+
+=head1 OTHER SHORTCUTS
+
+KENTNL uses a few other tricks that might prove useful to know about when hacking on his dists.
+
+=head2 Install and Test using a pre-made build branch
+
+Most of my repositories come with 1 or more pre-made C<build> branches.
+
+=head2 Locally Patch C<dist.ini>
