@@ -1,3 +1,24 @@
+=head1 TOC
+
+=over 4
+
+=item * L</HOW TO CONTRIBUTE>
+
+=over 4
+
+=item * L</Getting dependencies>
+
+=item * L</Running tests>
+
+=item * L</Code style and tidying>
+
+=item * L</Patching documentation>
+
+=item * L</Installing and using Dist::Zilla>
+
+=back
+
+=back
 
 =head1 HOW TO CONTRIBUTE
 
