@@ -80,15 +80,19 @@ around dump_config => config_dumper( __PACKAGE__, qw( document_version format fi
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
-sub distname {
+sub _distname {
   my $x = __PACKAGE__;
   $x =~ s/::/-/sxg;
   return $x;
 }
 
+=for Pod::Coverage after_build
+
+=cut
+
 sub after_build {
   my ($self) = @_;
-  my $source = path( dist_dir( distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
+  my $source = path( dist_dir( _distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
   my $target = path( $self->zilla->root )->child( $self->filename );
   my $sub    = '_convert_pod_' . $self->format;
   croak "No such method $sub for format " . $self->format if not $self->can($sub);
