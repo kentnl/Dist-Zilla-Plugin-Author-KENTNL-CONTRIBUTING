@@ -1,5 +1,5 @@
 {
-   "abstract" : "Generates a CONTRIBUTING file for KENTNL's dists.",
+   "abstract" : "Generates a CONTRIBUTING file for KENTNL's distributions.",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
    ],
@@ -442,6 +442,11 @@
                         "class" : "Pod::Weaver::Section::Authors",
                         "name" : "Authors",
                         "version" : "4.012"
+                     },
+                     {
+                        "class" : "Pod::Weaver::Section::Contributors",
+                        "name" : "Contributors",
+                        "version" : "0.009"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Legal",

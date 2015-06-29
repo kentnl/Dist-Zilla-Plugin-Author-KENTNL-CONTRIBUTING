@@ -1,5 +1,5 @@
 ---
-abstract: "Generates a CONTRIBUTING file for KENTNL's dists."
+abstract: "Generates a CONTRIBUTING file for KENTNL's distributions."
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:

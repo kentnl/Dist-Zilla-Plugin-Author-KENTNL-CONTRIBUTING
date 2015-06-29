@@ -6,7 +6,7 @@ package Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING;
 
 our $VERSION = '0.001000';
 
-# ABSTRACT: Generates a CONTRIBUTING file for KENTNL's dists.
+# ABSTRACT: Generates a CONTRIBUTING file for KENTNL's distributions.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -30,7 +30,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING - Generates a CONTRIBUTING file for KENTNL's dists.
+Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING - Generates a CONTRIBUTING file for KENTNL's distributions.
 
 =head1 VERSION
 
@@ -44,6 +44,12 @@ section in my distribution.
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
+
+=head1 CONTRIBUTOR
+
+=for stopwords David Golden
+
+David Golden <dagolden@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
