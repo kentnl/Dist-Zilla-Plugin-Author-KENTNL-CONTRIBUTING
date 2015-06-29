@@ -6,7 +6,10 @@ license          = Perl_5
 copyright_holder = Kent Fredric <kentfredric@gmail.com>
 
 ; Uncomment this to bootstrap via self
-; [Bootstrap::lib]
+[Bootstrap::lib]
+
+[Bootstrap::ShareDir::Dist]
+share = share
 
 [@Author::KENTNL]
 :version          = 2.024002
