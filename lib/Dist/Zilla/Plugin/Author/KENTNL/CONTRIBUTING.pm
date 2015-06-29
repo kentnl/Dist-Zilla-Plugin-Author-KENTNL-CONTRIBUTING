@@ -25,6 +25,16 @@ with 'Dist::Zilla::Role::AfterBuild';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
+=attr C<document_version>
+
+Specify which shared document to deploy
+
+Valid values:
+
+  [0.1]
+
+=cut
+
 has 'document_version' => (
   isa     => $valid_version_enum,
   is      => 'ro',
@@ -35,11 +45,29 @@ my $valid_formats = enum [qw( pod mkdn txt )];
 
 no Moose::Util::TypeConstraints;
 
+=attr C<format>
+
+Document format to emit.
+
+Valid values:
+
+  pod [mkdn] txt
+
+=cut
+
 has 'format' => (
   isa     => $valid_formats,
   is      => 'ro',
   default => 'mkdn',
 );
+
+=attr C<filename>
+
+The file name to create.
+
+Defaults to C<CONTRIBUTING> with an extension based on the value of L</format>
+
+=cut
 
 has 'filename' => (
   isa        => 'Str',

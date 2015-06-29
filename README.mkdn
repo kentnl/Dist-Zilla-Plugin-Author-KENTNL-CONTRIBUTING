@@ -13,6 +13,30 @@ section in my distribution.
 
 I would have made something more general, but my head exploded in thinking about it.
 
+# ATTRIBUTES
+
+## `document_version`
+
+Specify which shared document to deploy
+
+Valid values:
+
+    [0.1]
+
+## `format`
+
+Document format to emit.
+
+Valid values:
+
+    pod [mkdn] txt
+
+## `filename`
+
+The file name to create.
+
+Defaults to `CONTRIBUTING` with an extension based on the value of ["format"](#format)
+
 # AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
