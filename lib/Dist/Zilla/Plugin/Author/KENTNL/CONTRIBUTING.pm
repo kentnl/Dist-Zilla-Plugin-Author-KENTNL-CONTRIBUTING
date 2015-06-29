@@ -21,3 +21,5 @@ no Moose;
 
 This is a personal Dist::Zilla plug-in that generates a CONTRIBUTING
 section in my distribution.
+
+I would have made something more general, but my head exploded in thinking about it.
