@@ -780,7 +780,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
             "config" : {
-               "__PACKAGE__" : {
+               "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
                   "document_version" : "0.1",
                   "filename" : "CONTRIBUTING.mkdn",
                   "format" : "mkdn"

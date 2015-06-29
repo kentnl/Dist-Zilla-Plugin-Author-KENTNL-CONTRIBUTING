@@ -45,7 +45,7 @@ has "filename" => (
 );
 
 around dump_config => config_dumper( 
-  __PACKAGE__ => qw( document_version format filename ),
+  __PACKAGE__,qw( document_version format filename ),
 );
 
 __PACKAGE__->meta->make_immutable;
