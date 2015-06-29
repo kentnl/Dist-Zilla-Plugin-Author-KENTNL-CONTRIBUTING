@@ -29,6 +29,12 @@
 
 =item * L</Locally Patch dist ini>
 
+=over 4
+
+=item * L</Doing Long-Term dist ini patches>
+
+=back
+
 =back
 
 =back
@@ -179,7 +185,9 @@ So if you're hacking on one of my dists and a plugin or two get in your way and 
 I<wanting> to work with the full C<Dist::Zilla> stack, you can freely just yank them out
 and keep on trucking without having to memorize the arcane syntax my bundle requires.
 
-B<NB:> If you find yourself wanting to make long term changes to dist.ini, B<then>
+=head3 Doing Long-Term dist ini patches
+
+If you find yourself wanting to make and submit long term changes to dist.ini, B<then>
 you I<may> want to look into C<dist.ini.meta>, and see the results of your changes
 in C<dist.ini> after making changes by performing:
 
@@ -190,4 +198,3 @@ building my dists:
 
     Dist::Zilla::PluginBundle::Author::KENTNL
     Dist::Zilla::App::Command::bakeini
-

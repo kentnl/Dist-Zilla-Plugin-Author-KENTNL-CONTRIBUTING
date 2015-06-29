@@ -9,6 +9,7 @@
 - ["OTHER SHORTCUTS"](#other-shortcuts)
     - ["Install and Test using a pre-made build branch"](#install-and-test-using-a-pre-made-build-branch)
     - ["Locally Patch dist ini"](#locally-patch-dist-ini)
+        - ["Doing Long-Term dist ini patches"](#doing-long-term-dist-ini-patches)
 
 # HOW TO CONTRIBUTE
 
@@ -150,7 +151,9 @@ So if you're hacking on one of my dists and a plugin or two get in your way and 
 _wanting_ to work with the full `Dist::Zilla` stack, you can freely just yank them out
 and keep on trucking without having to memorize the arcane syntax my bundle requires.
 
-**NB:** If you find yourself wanting to make long term changes to dist.ini, **then**
+### Doing Long-Term dist ini patches
+
+If you find yourself wanting to make and submit long term changes to dist.ini, **then**
 you _may_ want to look into `dist.ini.meta`, and see the results of your changes
 in `dist.ini` after making changes by performing:
 
