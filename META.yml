@@ -26,6 +26,7 @@ recommends:
   Path::Tiny: '0.058'
 requires:
   Dist::Zilla::Role::AfterBuild: '0'
+  Dist::Zilla::Util::ConfigDumper: '0'
   File::ShareDir: '0'
   Moose: '0'
   Moose::Util::TypeConstraints: '0'

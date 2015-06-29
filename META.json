@@ -101,6 +101,7 @@
          },
          "requires" : {
             "Dist::Zilla::Role::AfterBuild" : "0",
+            "Dist::Zilla::Util::ConfigDumper" : "0",
             "File::ShareDir" : "0",
             "Moose" : "0",
             "Moose::Util::TypeConstraints" : "0",
@@ -778,6 +779,13 @@
          },
          {
             "class" : "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
+            "config" : {
+               "__PACKAGE__" : {
+                  "document_version" : "0.1",
+                  "filename" : "CONTRIBUTING.mkdn",
+                  "format" : "mkdn"
+               }
+            },
             "name" : "Author::KENTNL::CONTRIBUTING",
             "version" : "0.001000"
          },

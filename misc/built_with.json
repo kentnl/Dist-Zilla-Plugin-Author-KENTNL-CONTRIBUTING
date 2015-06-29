@@ -55,6 +55,7 @@
       "Dist::Zilla::Plugin::UploadToCPAN" : "5.037",
       "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.024002",
       "Dist::Zilla::Role::AfterBuild" : "5.037",
+      "Dist::Zilla::Util::ConfigDumper" : "0.003006",
       "ExtUtils::MakeMaker" : "7.04_01",
       "File::ShareDir" : "1.102",
       "File::Spec" : "3.56",

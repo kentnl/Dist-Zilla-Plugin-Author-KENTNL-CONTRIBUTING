@@ -15,10 +15,11 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 # without changing their API version
 our $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
-use Moose qw( with has );
+use Moose qw( with has around );
 use Path::Tiny qw( path );
 use File::ShareDir qw( dist_dir );
 use Moose::Util::TypeConstraints qw( enum );
+use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 with 'Dist::Zilla::Role::AfterBuild';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
@@ -41,6 +42,10 @@ has "filename" => (
   isa        => 'Str',
   is         => 'ro',
   lazy_build => 1
+);
+
+around dump_config => config_dumper( 
+  __PACKAGE__ => qw( document_version format filename ),
 );
 
 __PACKAGE__->meta->make_immutable;
