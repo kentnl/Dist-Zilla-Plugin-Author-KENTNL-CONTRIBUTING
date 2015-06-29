@@ -178,7 +178,7 @@ Valid values:
 
 =head2 C<filename>
 
-The filename to create.
+The file name to create.
 
 Defaults to C<CONTRIBUTING> with an extension based on the value of L</format>
 
