@@ -33,6 +33,8 @@
             "Dist::Zilla::Plugin::Author::KENTNL::TravisCI" : "0.001002",
             "Dist::Zilla::Plugin::Authority" : "1.006",
             "Dist::Zilla::Plugin::AutoPrereqs" : "0",
+            "Dist::Zilla::Plugin::Bootstrap::ShareDir::Dist" : "0",
+            "Dist::Zilla::Plugin::Bootstrap::lib" : "0",
             "Dist::Zilla::Plugin::BumpVersionAfterRelease" : "0",
             "Dist::Zilla::Plugin::ConfirmRelease" : "0",
             "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0",
@@ -133,6 +135,30 @@
       },
       "plugins" : [
          {
+            "class" : "Dist::Zilla::Plugin::Bootstrap::lib",
+            "config" : {
+               "Dist::Zilla::Role::Bootstrap" : {
+                  "try_built" : null
+               }
+            },
+            "name" : "Bootstrap::lib",
+            "version" : "1.001000"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Bootstrap::ShareDir::Dist",
+            "config" : {
+               "Dist::Zilla::Plugin::Bootstrap::ShareDir::Dist" : {
+                  "dir" : "share"
+               },
+               "Dist::Zilla::Role::Bootstrap" : {
+                  "distname" : "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
+                  "try_built" : null
+               }
+            },
+            "name" : "Bootstrap::ShareDir::Dist",
+            "version" : "1.001001"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
             "name" : "@Author::KENTNL/MetaConfig",
             "version" : "5.037"
@@ -208,7 +234,9 @@
                      "README",
                      "README.mkdn",
                      "README.pod",
-                     "LICENSE"
+                     "LICENSE",
+                     "cpanfile",
+                     "Makefile.PL"
                   ],
                   "exclude_match" : [],
                   "follow_symlinks" : "0",

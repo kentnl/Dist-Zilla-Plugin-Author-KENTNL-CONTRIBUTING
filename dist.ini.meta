@@ -6,7 +6,10 @@ license          = Perl_5
 copyright_holder = Kent Fredric <kentfredric@gmail.com>
 
 ; Uncomment this to bootstrap via self
-; [Bootstrap::lib]
+[Bootstrap::lib]
+
+[Bootstrap::ShareDir::Dist]
+share = share
 
 [@Author::KENTNL]
 :version          = 2.024002
@@ -16,9 +19,13 @@ toolkit           = eumm
 toolkit_hardness  = soft
 bumpversions      = 1
 copyfiles         = LICENSE
+copyfiles         = cpanfile
+copyfiles         = Makefile.PL
 srcreadme         = mkdn
 ; twitter_extra_hash_tags =
 ; auto_prereqs_skip = File::Find
+
+;[CPANFile]
 
 [Prereqs]
 ;authordep Pod::Weaver::Section::Contributors = 0
