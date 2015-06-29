@@ -6,7 +6,7 @@ package Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING;
 
 our $VERSION = '0.001000';
 
-# ABSTRACT: Kent Failed To Provide An Abstract
+# ABSTRACT: Generates a CONTRIBUTING file for KENTNL's distributions.
 
 # AUTHORITY
 
@@ -16,3 +16,8 @@ __PACKAGE__->meta->make_immutable;
 no Moose;
 
 1;
+
+=head1 DESCRIPTION
+
+This is a personal Dist::Zilla plug-in that generates a CONTRIBUTING
+section in my distribution.
