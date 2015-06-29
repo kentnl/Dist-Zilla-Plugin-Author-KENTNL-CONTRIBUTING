@@ -36,6 +36,11 @@ Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING - Generates a CONTRIBUTING fil
 
 version 0.001000
 
+=head1 DESCRIPTION
+
+This is a personal Dist::Zilla plug-in that generates a CONTRIBUTING
+section in my distribution.
+
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
