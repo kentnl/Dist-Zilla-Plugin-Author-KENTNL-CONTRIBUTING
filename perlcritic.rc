@@ -170,7 +170,7 @@ stop_words = KENTNL
 
 [ErrorHandling::RequireCheckingReturnValueOfEval]
 
-[ErrorHandling::RequireUseOfExceptions]
+[-ErrorHandling::RequireUseOfExceptions]
 
 [InputOutput::ProhibitBacktickOperators]
 

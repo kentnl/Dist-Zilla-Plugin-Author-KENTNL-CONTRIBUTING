@@ -13,8 +13,9 @@ our $VERSION = '0.001000';
 # NB: This list is intentionally short, because these are API-versions
 # describing which document to fetch, and certain documents will update
 # without changing their API version
-our $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
+my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
+use Carp qw( croak );
 use Moose qw( with has around );
 use Path::Tiny qw( path );
 use File::ShareDir qw( dist_dir );
@@ -24,7 +25,7 @@ with 'Dist::Zilla::Role::AfterBuild';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
-has "document_version" => (
+has 'document_version' => (
   isa     => $valid_version_enum,
   is      => 'ro',
   default => '0.1',
@@ -32,16 +33,18 @@ has "document_version" => (
 
 my $valid_formats = enum [qw( pod mkdn txt )];
 
-has "format" => (
+no Moose::Util::TypeConstraints;
+
+has 'format' => (
   isa     => $valid_formats,
   is      => 'ro',
   default => 'mkdn',
 );
 
-has "filename" => (
+has 'filename' => (
   isa        => 'Str',
   is         => 'ro',
-  lazy_build => 1
+  lazy_build => 1,
 );
 
 around dump_config => config_dumper( __PACKAGE__, qw( document_version format filename ), );
@@ -51,7 +54,7 @@ no Moose;
 
 sub distname {
   my $x = __PACKAGE__;
-  $x =~ s/::/-/g;
+  $x =~ s/::/-/sxg;
   return $x;
 }
 
@@ -59,15 +62,16 @@ sub after_build {
   my ($self) = @_;
   my $source = path( dist_dir( distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
   my $target = path( $self->zilla->root )->child( $self->filename );
-  my $sub    = "_convert_pod_" . $self->format;
-  die "No such method $sub for format " . $self->format if not $self->can($sub);
+  my $sub    = '_convert_pod_' . $self->format;
+  croak "No such method $sub for format " . $self->format if not $self->can($sub);
   $self->$sub( $source, $target );
+  return;
 }
 
 sub _build_filename {
   my ($self) = @_;
-  my $prefix = "CONTRIBUTING";
-  my $exts = { 'pod' => '.pod', 'mkdn' => '.mkdn', 'txt' => '' };
+  my $prefix = 'CONTRIBUTING';
+  my $exts = { 'pod' => '.pod', 'mkdn' => '.mkdn', 'txt' => q[] };
   if ( exists $exts->{ $self->format } ) {
     $prefix .= $exts->{ $self->format };
   }
@@ -75,25 +79,28 @@ sub _build_filename {
 }
 
 sub _convert_pod_pod {
-  my ( $self, $source, $target ) = @_;
+  my ( undef, $source, $target ) = @_;
   path($source)->copy($target);
+  return;
 }
 
 sub _convert_pod_txt {
-  my ( $self, $source, $target ) = @_;
+  my ( undef, $source, $target ) = @_;
   require Pod::Text;
   my $parser = Pod::Text->new( loose => 1 );
   $parser->output_fh( $target->openw_utf8 );
   $parser->parse_file( $source->openr_utf8 );
+  return;
 }
 
 sub _convert_pod_mkdn {
-  my ( $self, $source, $target ) = @_;
+  my ( undef, $source, $target ) = @_;
   require Pod::Markdown;
   Pod::Markdown->VERSION('2.000');
   my $parser = Pod::Markdown->new();
   $parser->output_fh( $target->openw_utf8 );
   $parser->parse_file( $source->openr_utf8 );
+  return;
 }
 
 1;
