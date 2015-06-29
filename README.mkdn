@@ -15,6 +15,10 @@ section in my distribution.
 
 Kent Fredric <kentnl@cpan.org>
 
+# CONTRIBUTOR
+
+David Golden <dagolden@cpan.org>
+
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.

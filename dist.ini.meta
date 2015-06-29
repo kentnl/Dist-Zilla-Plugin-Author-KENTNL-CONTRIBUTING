@@ -21,4 +21,4 @@ srcreadme         = mkdn
 ; auto_prereqs_skip = File::Find
 
 [Prereqs]
-
+;authordep Pod::Weaver::Section::Contributors = 0
