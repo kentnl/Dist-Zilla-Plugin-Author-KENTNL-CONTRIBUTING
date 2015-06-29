@@ -25,6 +25,16 @@ with 'Dist::Zilla::Role::AfterBuild';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
+
+
+
+
+
+
+
+
+
+
 has 'document_version' => (
   isa     => $valid_version_enum,
   is      => 'ro',
@@ -35,11 +45,29 @@ my $valid_formats = enum [qw( pod mkdn txt )];
 
 no Moose::Util::TypeConstraints;
 
+
+
+
+
+
+
+
+
+
+
 has 'format' => (
   isa     => $valid_formats,
   is      => 'ro',
   default => 'mkdn',
 );
+
+
+
+
+
+
+
+
 
 has 'filename' => (
   isa        => 'Str',
@@ -52,15 +80,19 @@ around dump_config => config_dumper( __PACKAGE__, qw( document_version format fi
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
-sub distname {
+sub _distname {
   my $x = __PACKAGE__;
   $x =~ s/::/-/sxg;
   return $x;
 }
 
+
+
+
+
 sub after_build {
   my ($self) = @_;
-  my $source = path( dist_dir( distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
+  my $source = path( dist_dir( _distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
   my $target = path( $self->zilla->root )->child( $self->filename );
   my $sub    = '_convert_pod_' . $self->format;
   croak "No such method $sub for format " . $self->format if not $self->can($sub);
@@ -125,6 +157,32 @@ This is a personal Dist::Zilla plug-in that generates a CONTRIBUTING
 section in my distribution.
 
 I would have made something more general, but my head exploded in thinking about it.
+
+=head1 ATTRIBUTES
+
+=head2 C<document_version>
+
+Specify which shared document to deploy
+
+Valid values:
+
+  [0.1]
+
+=head2 C<format>
+
+Document format to emit.
+
+Valid values:
+
+  pod [mkdn] txt
+
+=head2 C<filename>
+
+The filename to create.
+
+Defaults to C<CONTRIBUTING> with an extension based on the value of L</format>
+
+=for Pod::Coverage after_build
 
 =head1 AUTHOR
 
