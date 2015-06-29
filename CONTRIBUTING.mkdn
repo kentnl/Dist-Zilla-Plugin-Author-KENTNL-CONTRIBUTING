@@ -5,7 +5,7 @@
     - ["Running tests"](#running-tests)
     - ["Code style and tidying"](#code-style-and-tidying)
     - ["Patching documentation"](#patching-documentation)
-    - ["Installing and using Dist::Zilla"](#installing-and-using-dist-zilla)
+    - ["Installing and using DistZilla"](#installing-and-using-distzilla)
 - ["OTHER SHORTCUTS"](#other-shortcuts)
     - ["Install and Test using a pre-made build branch"](#install-and-test-using-a-pre-made-build-branch)
     - ["Locally Patch dist ini"](#locally-patch-dist-ini)
@@ -60,7 +60,7 @@ the documentation you see.
 If you see typos or documentation issues in the generated docs, please
 email or open a bug ticket instead of patching.
 
-## Installing and using Dist::Zilla
+## Installing and using DistZilla
 
 Dist::Zilla is a very powerful authoring tool, optimized for maintaining a
 large number of distributions with a high degree of automation, but it has a
