@@ -27,7 +27,7 @@
 
 =item * L</Install and Test using a pre-made build branch>
 
-=item * L<< /Locally Patch C<dist.ini> >>
+=item * L<</Locally Patch dist.ini>>
 
 =back
 
@@ -155,7 +155,7 @@ Additionally: These branches are part of my Travis testing infrastructure which 
 ascertain that the module will work and pass tests without the benefit of having
 3-halves of CPAN due to developer dependencies.
 
-=head2 Locally Patch C<dist.ini>
+=head2 Locally Patch dist.ini
 
 The majority of C<Dist::Zilla> authors ship around a load of shared configuration
 in a personal C<@Bundle>, which makes replicating configuration to their different

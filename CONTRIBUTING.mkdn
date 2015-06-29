@@ -20,7 +20,7 @@ usual files you might expect are not in the repository, but are generated at
 release time, as is much of the documentation.  Some generated files are
 kept in the repository as a convenience (e.g. Makefile.PL or cpanfile).
 
-Generally, **you do not need Dist::Zilla to contribute patches**.  You do need
+Generally, **you do not need Dist::Zilla to contribute patches**.  You may need
 Dist::Zilla to create a tarball.  See below for guidance.
 
 ## Getting dependencies
