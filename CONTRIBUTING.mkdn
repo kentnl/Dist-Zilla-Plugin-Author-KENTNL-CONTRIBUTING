@@ -8,7 +8,7 @@
     - ["Installing and using Dist::Zilla"](#installing-and-using-dist-zilla)
 - ["OTHER SHORTCUTS"](#other-shortcuts)
     - ["Install and Test using a pre-made build branch"](#install-and-test-using-a-pre-made-build-branch)
-    - ["Locally Patch `dist.ini`"](#locally-patch-dist-ini)
+    - ["Locally Patch dist.ini"](#locally-patch-dist-ini)
 
 # HOW TO CONTRIBUTE
 
