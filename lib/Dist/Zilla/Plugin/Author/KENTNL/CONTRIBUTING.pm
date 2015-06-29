@@ -44,9 +44,7 @@ has "filename" => (
   lazy_build => 1
 );
 
-around dump_config => config_dumper( 
-  __PACKAGE__,qw( document_version format filename ),
-);
+around dump_config => config_dumper( __PACKAGE__, qw( document_version format filename ), );
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
@@ -61,7 +59,7 @@ sub after_build {
   my ($self) = @_;
   my $source = path( dist_dir( distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
   my $target = path( $self->zilla->root )->child( $self->filename );
-  my $sub = "_convert_pod_" . $self->format;
+  my $sub    = "_convert_pod_" . $self->format;
   die "No such method $sub for format " . $self->format if not $self->can($sub);
   $self->$sub( $source, $target );
 }
