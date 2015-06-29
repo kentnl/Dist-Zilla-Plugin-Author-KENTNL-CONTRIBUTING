@@ -37,4 +37,8 @@ requires:
   perl: '5.006'
   strict: '0'
   warnings: '0'
+resources:
+  bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING/issues
+  homepage: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
+  repository: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING.git
 version: '0.001000'

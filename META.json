@@ -135,6 +135,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING/issues"
+      },
+      "homepage" : "https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING.git",
+         "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING"
+      }
+   },
    "version" : "0.001000",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
