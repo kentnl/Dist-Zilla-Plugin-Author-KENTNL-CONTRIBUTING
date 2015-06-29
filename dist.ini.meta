@@ -19,13 +19,12 @@ toolkit           = eumm
 toolkit_hardness  = soft
 bumpversions      = 1
 copyfiles         = LICENSE
-copyfiles         = cpanfile
 copyfiles         = Makefile.PL
 srcreadme         = mkdn
 ; twitter_extra_hash_tags =
 ; auto_prereqs_skip = File::Find
 
-;[CPANFile]
+[Author::KENTNL::CONTRIBUTING]
 
 [Prereqs]
 ;authordep Pod::Weaver::Section::Contributors = 0

@@ -15,10 +15,83 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 # without changing their API version
 our $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
-use Moose;
+use Moose qw( with has );
+use Path::Tiny qw( path );
+use File::ShareDir qw( dist_dir );
+use Moose::Util::TypeConstraints qw( enum );
+with 'Dist::Zilla::Role::AfterBuild';
+
+my $valid_version_enum = enum [ keys %{$valid_versions} ];
+
+has "document_version" => (
+  isa     => $valid_version_enum,
+  is      => 'ro',
+  default => '0.1',
+);
+
+my $valid_formats = enum [qw( pod mkdn txt )];
+
+has "format" => (
+  isa     => $valid_formats,
+  is      => 'ro',
+  default => 'mkdn',
+);
+
+has "filename" => (
+  isa        => 'Str',
+  is         => 'ro',
+  lazy_build => 1
+);
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
+
+sub distname {
+  my $x = __PACKAGE__;
+  $x =~ s/::/-/g;
+  return $x;
+}
+
+sub after_build {
+  my ($self) = @_;
+  my $source = path( dist_dir( distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
+  my $target = path( $self->zilla->root )->child( $self->filename );
+  my $sub = "_convert_pod_" . $self->format;
+  die "No such method $sub for format " . $self->format if not $self->can($sub);
+  $self->$sub( $source, $target );
+}
+
+sub _build_filename {
+  my ($self) = @_;
+  my $prefix = "CONTRIBUTING";
+  my $exts = { 'pod' => '.pod', 'mkdn' => '.mkdn', 'txt' => '' };
+  if ( exists $exts->{ $self->format } ) {
+    $prefix .= $exts->{ $self->format };
+  }
+  return $prefix;
+}
+
+sub _convert_pod_pod {
+  my ( $self, $source, $target ) = @_;
+  path($source)->copy($target);
+}
+
+sub _convert_pod_txt {
+  my ( $self, $source, $target ) = @_;
+  require Pod::Text;
+  my $parser = Pod::Text->new( loose => 1 );
+  $parser->output_fh( $target->openw_utf8 );
+  $parser->parse_fh( $source->openr_utf8 );
+}
+
+sub _convert_pod_mkdn {
+  my ( $self, $source, $target ) = @_;
+  require Pod::Markdown;
+  Pod::Markdown->VERSION('2.000');
+  my $parser = Pod::Markdown->new();
+  $parser->output_fh( $target->openw_utf8 );
+  $parser->parse_fh( $source->openr_utf8 );
+}
 
 1;
 
