@@ -18,7 +18,13 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
   "PREREQ_PM" => {
+    "Dist::Zilla::Role::AfterBuild" => 0,
+    "File::ShareDir" => 0,
     "Moose" => 0,
+    "Moose::Util::TypeConstraints" => 0,
+    "Path::Tiny" => 0,
+    "Pod::Markdown" => "2.000",
+    "Pod::Text" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -35,9 +41,15 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Dist::Zilla::Role::AfterBuild" => 0,
   "ExtUtils::MakeMaker" => 0,
+  "File::ShareDir" => 0,
   "File::Spec" => 0,
   "Moose" => 0,
+  "Moose::Util::TypeConstraints" => 0,
+  "Path::Tiny" => 0,
+  "Pod::Markdown" => "2.000",
+  "Pod::Text" => 0,
   "Test::More" => "0.89",
   "strict" => 0,
   "warnings" => 0
