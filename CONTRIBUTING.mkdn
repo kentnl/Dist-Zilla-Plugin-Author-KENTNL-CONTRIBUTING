@@ -96,7 +96,8 @@ You can learn more about Dist::Zilla at http://dzil.org/
 
 # OTHER SHORTCUTS
 
-KENTNL uses a few other tricks that might prove useful to know about when hacking on his dists.
+I use a few other tricks that might prove useful to know about when hacking
+on my dists.
 
 ## Install and Test using a pre-made build branch
 
@@ -155,7 +156,8 @@ in `dist.ini` after making changes by performing:
 
     dzil bakeini
 
-This will possibly require installing the following, which are not strictly required for building my dists:
+This will possibly require installing the following, which are not strictly required for
+building my dists:
 
     Dist::Zilla::PluginBundle::Author::KENTNL
     Dist::Zilla::App::Command::bakeini
