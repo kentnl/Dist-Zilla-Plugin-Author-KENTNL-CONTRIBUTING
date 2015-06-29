@@ -24,7 +24,7 @@
 
 =item * L</Install and Test using a pre-made build branch>
 
-=item * L<< /Locally Patch C<dist.ini> >>
+=item * L<< /Locally Patch dist.ini >>
 
 =back
 
