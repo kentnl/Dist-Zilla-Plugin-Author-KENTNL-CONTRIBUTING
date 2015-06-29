@@ -25,7 +25,6 @@ srcreadme         = mkdn
 ; auto_prereqs_skip = File::Find
 
 [Author::KENTNL::CONTRIBUTING]
-format = txt
 
 [Prereqs]
 ;authordep Pod::Weaver::Section::Contributors = 0
