@@ -72,6 +72,7 @@ sub prune_files {
   my ($self) = @_;
   for my $file ( (), @{ $self->zilla->files } ) {
     next unless $file->name eq $self->filename;
+    $self->log_debug([ "Stashing %s ( %s )", $file->name , $file ] );
     push @{ $self->_secret_stash }, $file;
     $self->zilla->prune_file($file);
   }
@@ -92,6 +93,7 @@ sub after_build {
 
     die "not a directory: $to_dir" unless -d $to_dir;
 
+    $self->log_debug("Overwriting $to");
     $to->spew_raw( $file->encoded_content );
     chmod $file->mode, "$to" or die "couldn't chmod $to: $!";
   }
