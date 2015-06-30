@@ -79,7 +79,7 @@ sub prune_files {
   my ($self) = @_;
   for my $file ( (), @{ $self->zilla->files } ) {
     next unless $file->name eq $self->filename;
-    $self->log_debug( [ "Stashing %s ( %s )", $file->name, $file ] );
+    $self->log_debug( [ 'Stashing %s ( %s )', $file->name, $file ] );
     push @{ $self->_secret_stash }, $file;
     $self->zilla->prune_file($file);
   }
