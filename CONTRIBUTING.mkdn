@@ -10,6 +10,7 @@
     - ["Install and Test using a pre-made build branch"](#install-and-test-using-a-pre-made-build-branch)
     - ["Locally Patch dist ini"](#locally-patch-dist-ini)
         - ["Doing Long-Term dist ini patches"](#doing-long-term-dist-ini-patches)
+- ["CREDITS"](#credits)
 
 # HOW TO CONTRIBUTE
 
@@ -164,3 +165,7 @@ building my dists:
 
     Dist::Zilla::PluginBundle::Author::KENTNL
     Dist::Zilla::App::Command::bakeini
+
+# CREDITS
+
+This file was adapted from an initial `CONTRIBUTING.mkdn` file from David Golden under the terms of the Apache 2 license.
