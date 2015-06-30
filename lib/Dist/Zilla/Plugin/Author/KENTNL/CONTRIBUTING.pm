@@ -15,6 +15,7 @@ our $VERSION = '0.001003';
 # without changing their API version
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
+use Carp qw( croak );
 use Path::Tiny qw( path );
 use Moose qw( has around extends with );
 use Moose::Util::TypeConstraints qw( enum );
@@ -68,14 +69,21 @@ has '_secret_stash' => (
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
+# DGAF
+
+=for Pod::Coverage prune_files after_build
+
+=cut
+
 sub prune_files {
   my ($self) = @_;
   for my $file ( (), @{ $self->zilla->files } ) {
     next unless $file->name eq $self->filename;
-    $self->log_debug([ "Stashing %s ( %s )", $file->name , $file ] );
+    $self->log_debug( [ 'Stashing %s ( %s )', $file->name, $file ] );
     push @{ $self->_secret_stash }, $file;
     $self->zilla->prune_file($file);
   }
+  return;
 }
 
 sub after_build {
@@ -91,12 +99,13 @@ sub after_build {
     my $to_dir    = $to->parent;
     $to_dir->mkpath unless -e $to_dir;
 
-    die "not a directory: $to_dir" unless -d $to_dir;
+    croak "not a directory: $to_dir" unless -d $to_dir;
 
     $self->log_debug("Overwriting $to");
     $to->spew_raw( $file->encoded_content );
-    chmod $file->mode, "$to" or die "couldn't chmod $to: $!";
+    chmod $file->mode, "$to" or croak "couldn't chmod $to: $!";
   }
+  return;
 }
 
 1;

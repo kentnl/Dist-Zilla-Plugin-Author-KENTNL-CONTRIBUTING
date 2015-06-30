@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Dist::Zilla::Plugin::GenerateFile::ShareDir" => 0,
     "Dist::Zilla::Role::AfterBuild" => 0,
     "Dist::Zilla::Role::FilePruner" => 0,
@@ -48,6 +49,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Carp" => 0,
   "Dist::Zilla::Plugin::GenerateFile::ShareDir" => 0,
   "Dist::Zilla::Role::AfterBuild" => 0,
   "Dist::Zilla::Role::FilePruner" => 0,
