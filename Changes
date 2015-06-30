@@ -1,6 +1,13 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
-0.001002 2015-06-30T00:42:24Z edc11bf
+0.001002 2015-06-30T02:08:26Z 473269e
+ [Bugfix]
+ - Turns out to be useful to actually install files intended for a sharedir
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.001001, see misc/*.deps* for details
+ - configure: +1 (recommends: +1)
+ - develop: +1
 
 0.001001 2015-06-30T00:24:44Z 24a9a5d
  [Content]
