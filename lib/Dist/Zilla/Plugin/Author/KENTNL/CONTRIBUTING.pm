@@ -15,11 +15,13 @@ our $VERSION = '0.001003';
 # without changing their API version
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
-use Moose qw( has around extends );
+use Path::Tiny qw( path );
+use Moose qw( has around extends with );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 
 extends 'Dist::Zilla::Plugin::GenerateFile::ShareDir';
+with 'Dist::Zilla::Role::FilePruner', 'Dist::Zilla::Role::AfterBuild';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
@@ -53,8 +55,47 @@ has '+source_filename' => (
 
 around dump_config => config_dumper( __PACKAGE__, qw( document_version ), );
 
+## NB: The following lines of garbage is what you have to do to use a thing that gathers files
+## but have it appear on disk, and not in the release.
+## This file *cannot* appear in the release because EUMM is stupid and installs *.pod files
+## In the root directory.
+has '_secret_stash' => (
+  isa     => 'ArrayRef',
+  is      => 'ro',
+  default => sub { [] },
+);
+
 __PACKAGE__->meta->make_immutable;
 no Moose;
+
+sub prune_files {
+  my ($self) = @_;
+  for my $file ( (), @{ $self->zilla->files } ) {
+    next unless $file->name eq $self->filename;
+    push @{ $self->_secret_stash }, $file;
+    $self->zilla->prune_file($file);
+  }
+}
+
+sub after_build {
+  my ($self) = @_;
+  for my $file ( (), @{ $self->_secret_stash } ) {
+
+    # Appropriated from Dist::Zilla::write_out_file
+    # Okay, this is a bit much, until we have ->debug. -- rjbs, 2008-06-13
+    # $self->log("writing out " . $file->name);
+
+    my $file_path = path( $file->name );
+    my $to        = path( $self->zilla->root )->child($file_path);
+    my $to_dir    = $to->parent;
+    $to_dir->mkpath unless -e $to_dir;
+
+    die "not a directory: $to_dir" unless -d $to_dir;
+
+    $to->spew_raw( $file->encoded_content );
+    chmod $file->mode, "$to" or die "couldn't chmod $to: $!";
+  }
+}
 
 1;
 
