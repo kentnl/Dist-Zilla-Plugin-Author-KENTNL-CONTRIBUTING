@@ -26,6 +26,9 @@ extends 'Dist::Zilla::Plugin::GenerateFile::ShareDir';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
+no Moose::Util::TypeConstraints;
+
+
 
 
 
@@ -42,16 +45,6 @@ has 'document_version' => (
   default => '0.1',
 );
 
-no Moose::Util::TypeConstraints;
-
-
-
-
-
-
-
-
-
 has '+filename' => (
   lazy => 1,
   default => sub { 'CONTRIBUTING.pod' },
@@ -59,18 +52,13 @@ has '+filename' => (
 
 has '+source_filename' => (
   lazy => 1,
-  default => sub { $_[0]->_build_source_filename },
+  default => sub { 'contributing-' . $_[0]->document_version . '.pod' },
 );
 
-around dump_config => config_dumper( __PACKAGE__, qw( document_version filename ), );
+around dump_config => config_dumper( __PACKAGE__, qw( document_version ), );
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
-
-sub _build_source_filename {
-  my ( $self , ) = @_;
-  return 'contributing-' . $self->document_version . '.pod';
-}
 
 1;
 
@@ -104,12 +92,6 @@ Specify which shared document to deploy
 Valid values:
 
   [0.1]
-
-=head2 C<filename>
-
-The file name to create.
-
-Defaults to C<CONTRIBUTING> with an extension based on the value of L</format>
 
 =head1 AUTHOR
 

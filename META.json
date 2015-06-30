@@ -189,8 +189,7 @@
             "class" : "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
             "config" : {
                "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
-                  "document_version" : "0.1",
-                  "filename" : "CONTRIBUTING.pod"
+                  "document_version" : "0.1"
                },
                "Dist::Zilla::Plugin::GenerateFile::ShareDir" : {
                   "destination_filename" : "CONTRIBUTING.pod",
@@ -281,7 +280,7 @@
                      "CONTRIBUTING.mkdn",
                      "LICENSE",
                      "Makefile.PL",
-                     "CONTRIBUTING"
+                     "CONTRIBUTING.pod"
                   ],
                   "exclude_match" : [],
                   "follow_symlinks" : "0",
