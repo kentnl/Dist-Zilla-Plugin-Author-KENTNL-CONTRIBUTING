@@ -1,6 +1,14 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
-0.001003 2015-06-30T02:09:37Z ed721ea
+0.001003 2015-06-30T04:50:29Z ea6031e
+ [Dependencies::Stats]
+ - Dependencies changed since 0.001002, see misc/*.deps* for details
+ - develop: (suggests: ↑1)
+ - runtime: +1 -6 (recommends: -1)
+
+ [Features]
+ - Reimplement in terms of GenerateFile::ShareDir
+ - TODO: Support pruning from a built dist somehow while still working with copyfrombuild
 
 0.001002 2015-06-30T02:08:26Z 473269e
  [Bugfix]
