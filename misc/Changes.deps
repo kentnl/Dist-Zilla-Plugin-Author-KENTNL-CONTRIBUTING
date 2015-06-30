@@ -3,12 +3,10 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
 0.001003
  [Added / runtime requires]
  - Dist::Zilla::Plugin::GenerateFile::ShareDir
+ - Dist::Zilla::Role::FilePruner
 
  [Removed / runtime requires]
- - Carp
- - Dist::Zilla::Role::AfterBuild
  - File::ShareDir
- - Path::Tiny
  - Pod::Markdown 2.000
  - Pod::Text
 
