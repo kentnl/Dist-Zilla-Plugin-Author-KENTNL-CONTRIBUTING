@@ -68,11 +68,17 @@ has '_secret_stash' => (
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
+# DGAF
+
+
+
+
+
 sub prune_files {
   my ($self) = @_;
   for my $file ( (), @{ $self->zilla->files } ) {
     next unless $file->name eq $self->filename;
-    $self->log_debug([ "Stashing %s ( %s )", $file->name , $file ] );
+    $self->log_debug( [ "Stashing %s ( %s )", $file->name, $file ] );
     push @{ $self->_secret_stash }, $file;
     $self->zilla->prune_file($file);
   }
@@ -131,6 +137,8 @@ Specify which shared document to deploy
 Valid values:
 
   [0.1]
+
+=for Pod::Coverage prune_files after_build
 
 =head1 AUTHOR
 
