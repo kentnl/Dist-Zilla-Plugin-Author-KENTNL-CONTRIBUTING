@@ -29,7 +29,6 @@
          },
          "requires" : {
             "Dist::Zilla" : "5",
-            "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : "0",
             "Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes" : "0.004002",
             "Dist::Zilla::Plugin::Author::KENTNL::TravisCI" : "0.001002",
             "Dist::Zilla::Plugin::Authority" : "1.006",
@@ -67,6 +66,7 @@
             "Dist::Zilla::Plugin::Prereqs::Upgrade" : "0",
             "Dist::Zilla::Plugin::Readme::Brief" : "0",
             "Dist::Zilla::Plugin::ReadmeAnyFromPod" : "0",
+            "Dist::Zilla::Plugin::RemovePrereqs::Provided" : "0",
             "Dist::Zilla::Plugin::RewriteVersion::Sanitized" : "0",
             "Dist::Zilla::Plugin::RunExtraTests" : "0",
             "Dist::Zilla::Plugin::Test::CPAN::Changes" : "0",
@@ -131,7 +131,7 @@
    "provides" : {
       "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
          "file" : "lib/Dist/Zilla/Plugin/Author/KENTNL/CONTRIBUTING.pm",
-         "version" : "0.001000"
+         "version" : "0.001001"
       }
    },
    "release_status" : "stable",
@@ -146,7 +146,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING"
       }
    },
-   "version" : "0.001000",
+   "version" : "0.001001",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -644,7 +644,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "0.001000-source",
+                  "tag" : "0.001001-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -715,7 +715,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "0.001000",
+                  "tag" : "0.001001",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -799,6 +799,11 @@
                }
             },
             "name" : "Author::KENTNL::CONTRIBUTING",
+            "version" : "0.001001"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::RemovePrereqs::Provided",
+            "name" : "RemovePrereqs::Provided",
             "version" : "0.001000"
          },
          {
