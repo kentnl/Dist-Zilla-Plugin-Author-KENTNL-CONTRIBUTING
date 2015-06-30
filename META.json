@@ -99,13 +99,17 @@
       },
       "runtime" : {
          "recommends" : {
-            "Moose" : "2.000"
+            "Moose" : "2.000",
+            "Path::Tiny" : "0.058"
          },
          "requires" : {
             "Dist::Zilla::Plugin::GenerateFile::ShareDir" : "0",
+            "Dist::Zilla::Role::AfterBuild" : "0",
+            "Dist::Zilla::Role::FilePruner" : "0",
             "Dist::Zilla::Util::ConfigDumper" : "0",
             "Moose" : "0",
             "Moose::Util::TypeConstraints" : "0",
+            "Path::Tiny" : "0",
             "perl" : "5.006",
             "strict" : "0",
             "warnings" : "0"
@@ -312,13 +316,6 @@
             "config" : {
                "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
                   "document_version" : "0.1"
-               },
-               "Dist::Zilla::Plugin::GenerateFile::ShareDir" : {
-                  "destination_filename" : "CONTRIBUTING.pod",
-                  "dist" : "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
-                  "encoding" : "UTF-8",
-                  "format" : "mkdn",
-                  "source_filename" : "contributing-0.1.pod"
                }
             },
             "name" : "@Author::KENTNL/Author::KENTNL::CONTRIBUTING",
