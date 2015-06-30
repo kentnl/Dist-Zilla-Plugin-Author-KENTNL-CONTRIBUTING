@@ -17,7 +17,7 @@
 
 =item * L</Patching documentation>
 
-=item * L</Installing and using DistZilla>
+=item * L</Installing and using Dist::Zilla>
 
 =back
 
@@ -27,11 +27,11 @@
 
 =item * L</Install and Test using a pre-made build branch>
 
-=item * L</Locally Patch dist ini>
+=item * L<< Locally Patch C<dist.ini> >>
 
 =over 4
 
-=item * L</Doing Long-Term dist ini patches>
+=item * L<< /Doing Long-Term C<dist.ini> patches >>
 
 =back
 
@@ -91,7 +91,7 @@ the documentation you see.
 If you see typos or documentation issues in the generated docs, please
 email or open a bug ticket instead of patching.
 
-=head2 Installing and using DistZilla
+=head2 Installing and using Dist::Zilla
 
 Dist::Zilla is a very powerful authoring tool, optimized for maintaining a
 large number of distributions with a high degree of automation, but it has a
@@ -163,7 +163,7 @@ Additionally: These branches are part of my Travis testing infrastructure which 
 ascertain that the module will work and pass tests without the benefit of having
 3-halves of CPAN due to developer dependencies.
 
-=head2 Locally Patch dist ini
+=head2 Locally Patch C<dist.ini>
 
 The majority of C<Dist::Zilla> authors ship around a load of shared configuration
 in a personal C<@Bundle>, which makes replicating configuration to their different
@@ -187,7 +187,7 @@ So if you're hacking on one of my dists and a plugin or two get in your way and 
 I<wanting> to work with the full C<Dist::Zilla> stack, you can freely just yank them out
 and keep on trucking without having to memorize the arcane syntax my bundle requires.
 
-=head3 Doing Long-Term dist ini patches
+=head3 Doing Long-Term C<dist.ini> patches
 
 If you find yourself wanting to make and submit long term changes to dist.ini, B<then>
 you I<may> want to look into C<dist.ini.meta>, and see the results of your changes
