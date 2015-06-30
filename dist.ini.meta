@@ -13,8 +13,6 @@ share = share
 
 [ShareDir]
 
-[Author::KENTNL::CONTRIBUTING]
-
 [@Author::KENTNL]
 :version          = 2.024002
 normal_form       = numify
@@ -26,7 +24,6 @@ copyfiles         = LICENSE
 copyfiles         = Makefile.PL
 copyfiles         = CONTRIBUTING.pod
 srcreadme         = mkdn
--remove  = Author::KENTNL::CONTRIBUTING
 ; twitter_extra_hash_tags =
 ; auto_prereqs_skip = File::Find
 
