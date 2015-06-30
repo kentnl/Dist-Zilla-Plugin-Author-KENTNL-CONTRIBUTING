@@ -26,5 +26,7 @@ srcreadme         = mkdn
 
 [Author::KENTNL::CONTRIBUTING]
 
+[RemovePrereqs::Provided]
+
 [Prereqs]
 ;authordep Pod::Weaver::Section::Contributors = 0
