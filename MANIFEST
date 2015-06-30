@@ -3,7 +3,6 @@
 .mailmap
 .perltidyrc
 .travis.yml
-CONTRIBUTING.mkdn
 Changes
 LICENSE
 MANIFEST

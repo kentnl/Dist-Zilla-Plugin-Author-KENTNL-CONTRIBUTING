@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING;
 
-our $VERSION = '0.001002';
+our $VERSION = '0.001003';
 
 # ABSTRACT: Generates a CONTRIBUTING file for KENTNL's distributions.
 
@@ -16,14 +16,17 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
 use Carp qw( croak );
-use Moose qw( with has around );
 use Path::Tiny qw( path );
-use File::ShareDir qw( dist_dir );
+use Moose qw( has around extends with );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
-with 'Dist::Zilla::Role::AfterBuild';
+
+extends 'Dist::Zilla::Plugin::GenerateFile::ShareDir';
+with 'Dist::Zilla::Role::FilePruner', 'Dist::Zilla::Role::AfterBuild';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
+
+no Moose::Util::TypeConstraints;
 
 
 
@@ -41,97 +44,67 @@ has 'document_version' => (
   default => '0.1',
 );
 
-my $valid_formats = enum [qw( pod mkdn txt )];
+has '+filename' => (
+  lazy    => 1,
+  default => sub { 'CONTRIBUTING.pod' },
+);
 
-no Moose::Util::TypeConstraints;
+has '+source_filename' => (
+  lazy    => 1,
+  default => sub { 'contributing-' . $_[0]->document_version . '.pod' },
+);
 
+around dump_config => config_dumper( __PACKAGE__, qw( document_version ), );
 
-
-
-
-
-
-
-
-
-
-has 'format' => (
-  isa     => $valid_formats,
+## NB: The following lines of garbage is what you have to do to use a thing that gathers files
+## but have it appear on disk, and not in the release.
+## This file *cannot* appear in the release because EUMM is stupid and installs *.pod files
+## In the root directory.
+has '_secret_stash' => (
+  isa     => 'ArrayRef',
   is      => 'ro',
-  default => 'mkdn',
+  default => sub { [] },
 );
-
-
-
-
-
-
-
-
-
-has 'filename' => (
-  isa        => 'Str',
-  is         => 'ro',
-  lazy_build => 1,
-);
-
-around dump_config => config_dumper( __PACKAGE__, qw( document_version format filename ), );
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
-sub _distname {
-  my $x = __PACKAGE__;
-  $x =~ s/::/-/sxg;
-  return $x;
+# DGAF
+
+
+
+
+
+sub prune_files {
+  my ($self) = @_;
+  for my $file ( (), @{ $self->zilla->files } ) {
+    next unless $file->name eq $self->filename;
+    $self->log_debug( [ 'Stashing %s ( %s )', $file->name, $file ] );
+    push @{ $self->_secret_stash }, $file;
+    $self->zilla->prune_file($file);
+  }
+  return;
 }
-
-
-
-
 
 sub after_build {
   my ($self) = @_;
-  my $source = path( dist_dir( _distname() ) )->child( 'contributing-' . $self->document_version . '.pod' );
-  my $target = path( $self->zilla->root )->child( $self->filename );
-  my $sub    = '_convert_pod_' . $self->format;
-  croak "No such method $sub for format " . $self->format if not $self->can($sub);
-  $self->$sub( $source, $target );
-  return;
-}
+  for my $file ( (), @{ $self->_secret_stash } ) {
 
-sub _build_filename {
-  my ($self) = @_;
-  my $prefix = 'CONTRIBUTING';
-  my $exts = { 'pod' => '.pod', 'mkdn' => '.mkdn', 'txt' => q[] };
-  if ( exists $exts->{ $self->format } ) {
-    $prefix .= $exts->{ $self->format };
+    # Appropriated from Dist::Zilla::write_out_file
+    # Okay, this is a bit much, until we have ->debug. -- rjbs, 2008-06-13
+    # $self->log("writing out " . $file->name);
+
+    my $file_path = path( $file->name );
+    my $to        = path( $self->zilla->root )->child($file_path);
+    my $to_dir    = $to->parent;
+    $to_dir->mkpath unless -e $to_dir;
+
+    croak "not a directory: $to_dir" unless -d $to_dir;
+
+    $self->log_debug("Overwriting $to");
+    $to->spew_raw( $file->encoded_content );
+    chmod $file->mode, "$to" or croak "couldn't chmod $to: $!";
   }
-  return $prefix;
-}
-
-sub _convert_pod_pod {
-  my ( undef, $source, $target ) = @_;
-  path($source)->copy($target);
-  return;
-}
-
-sub _convert_pod_txt {
-  my ( undef, $source, $target ) = @_;
-  require Pod::Text;
-  my $parser = Pod::Text->new( loose => 1 );
-  $parser->output_fh( $target->openw_utf8 );
-  $parser->parse_file( $source->openr_utf8 );
-  return;
-}
-
-sub _convert_pod_mkdn {
-  my ( undef, $source, $target ) = @_;
-  require Pod::Markdown;
-  Pod::Markdown->VERSION('2.000');
-  my $parser = Pod::Markdown->new();
-  $parser->output_fh( $target->openw_utf8 );
-  $parser->parse_file( $source->openr_utf8 );
   return;
 }
 
@@ -149,7 +122,7 @@ Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING - Generates a CONTRIBUTING fil
 
 =head1 VERSION
 
-version 0.001002
+version 0.001003
 
 =head1 DESCRIPTION
 
@@ -168,21 +141,7 @@ Valid values:
 
   [0.1]
 
-=head2 C<format>
-
-Document format to emit.
-
-Valid values:
-
-  pod [mkdn] txt
-
-=head2 C<filename>
-
-The file name to create.
-
-Defaults to C<CONTRIBUTING> with an extension based on the value of L</format>
-
-=for Pod::Coverage after_build
+=for Pod::Coverage prune_files after_build
 
 =head1 AUTHOR
 

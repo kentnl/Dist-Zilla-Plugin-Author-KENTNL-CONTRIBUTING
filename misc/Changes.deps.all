@@ -1,6 +1,22 @@
 This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL dependencies for all phases (configure/build/runtime/test/develop)
 
-0.001002
+0.001003
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::GenerateFile::ShareDir
+
+ [Added / runtime requires]
+ - Dist::Zilla::Plugin::GenerateFile::ShareDir
+ - Dist::Zilla::Role::FilePruner
+
+ [Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.024002 → 2.025000
+
+ [Removed / runtime requires]
+ - File::ShareDir
+ - Pod::Markdown 2.000
+ - Pod::Text
+
+0.001002 2015-06-30T02:08:26Z
  [Added / configure recommends]
  - File::ShareDir::Install 0.10
 
