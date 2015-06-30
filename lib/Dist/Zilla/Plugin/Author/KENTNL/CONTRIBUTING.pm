@@ -92,6 +92,7 @@ sub after_build {
 
     die "not a directory: $to_dir" unless -d $to_dir;
 
+    $self->log_debug("Overwriting $to");
     $to->spew_raw( $file->encoded_content );
     chmod $file->mode, "$to" or die "couldn't chmod $to: $!";
   }
