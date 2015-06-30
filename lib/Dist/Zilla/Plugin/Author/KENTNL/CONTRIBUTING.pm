@@ -15,6 +15,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 # without changing their API version
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
+use Carp qw( croak );
 use Path::Tiny qw( path );
 use Moose qw( has around extends with );
 use Moose::Util::TypeConstraints qw( enum );
@@ -82,6 +83,7 @@ sub prune_files {
     push @{ $self->_secret_stash }, $file;
     $self->zilla->prune_file($file);
   }
+  return;
 }
 
 sub after_build {
@@ -97,12 +99,13 @@ sub after_build {
     my $to_dir    = $to->parent;
     $to_dir->mkpath unless -e $to_dir;
 
-    die "not a directory: $to_dir" unless -d $to_dir;
+    croak "not a directory: $to_dir" unless -d $to_dir;
 
     $self->log_debug("Overwriting $to");
     $to->spew_raw( $file->encoded_content );
-    chmod $file->mode, "$to" or die "couldn't chmod $to: $!";
+    chmod $file->mode, "$to" or croak "couldn't chmod $to: $!";
   }
+  return;
 }
 
 1;

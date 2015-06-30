@@ -104,6 +104,7 @@
             "Path::Tiny" : "0.058"
          },
          "requires" : {
+            "Carp" : "0",
             "Dist::Zilla::Plugin::GenerateFile::ShareDir" : "0",
             "Dist::Zilla::Role::AfterBuild" : "0",
             "Dist::Zilla::Role::FilePruner" : "0",
