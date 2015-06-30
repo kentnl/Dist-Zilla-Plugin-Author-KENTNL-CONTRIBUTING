@@ -11,6 +11,8 @@ copyright_holder = Kent Fredric <kentfredric@gmail.com>
 [Bootstrap::ShareDir::Dist]
 share = share
 
+[ShareDir]
+
 [@Author::KENTNL]
 :version          = 2.024002
 normal_form       = numify
