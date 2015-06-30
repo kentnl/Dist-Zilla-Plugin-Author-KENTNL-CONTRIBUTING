@@ -16,12 +16,14 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
 use Carp qw( croak );
-use Moose qw( with has around );
+use Moose qw( with has around extends );
 use Path::Tiny qw( path );
 use File::ShareDir qw( dist_dir );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
-with 'Dist::Zilla::Role::AfterBuild';
+
+extends 'Dist::Zilla::Plugin::GenerateFile::ShareDir'; 
+
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
@@ -69,10 +71,14 @@ has 'format' => (
 
 
 
-has 'filename' => (
-  isa        => 'Str',
-  is         => 'ro',
-  lazy_build => 1,
+has '+filename' => (
+  lazy => 1,
+  default => sub { $_[0]->_build_filename },
+);
+
+has '+source_filename' => (
+  lazy => 1,
+  default => sub { $_[0]->_build_source_filename },
 );
 
 around dump_config => config_dumper( __PACKAGE__, qw( document_version format filename ), );
@@ -80,10 +86,10 @@ around dump_config => config_dumper( __PACKAGE__, qw( document_version format fi
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
-sub _distname {
-  my $x = __PACKAGE__;
-  $x =~ s/::/-/sxg;
-  return $x;
+
+sub _build_source_filename {
+  my ( $self , ) = @_;
+  return 'contributing-' . $self->document_version . '.pod';
 }
 
 

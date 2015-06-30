@@ -27,7 +27,7 @@ recommends:
   Path::Tiny: '0.058'
 requires:
   Carp: '0'
-  Dist::Zilla::Role::AfterBuild: '0'
+  Dist::Zilla::Plugin::GenerateFile::ShareDir: '0'
   Dist::Zilla::Util::ConfigDumper: '0'
   File::ShareDir: '0'
   Moose: '0'

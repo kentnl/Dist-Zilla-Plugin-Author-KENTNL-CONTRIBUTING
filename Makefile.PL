@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
   "PREREQ_PM" => {
     "Carp" => 0,
-    "Dist::Zilla::Role::AfterBuild" => 0,
+    "Dist::Zilla::Plugin::GenerateFile::ShareDir" => 0,
     "Dist::Zilla::Util::ConfigDumper" => 0,
     "File::ShareDir" => 0,
     "Moose" => 0,
@@ -51,7 +51,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Carp" => 0,
-  "Dist::Zilla::Role::AfterBuild" => 0,
+  "Dist::Zilla::Plugin::GenerateFile::ShareDir" => 0,
   "Dist::Zilla::Util::ConfigDumper" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::ShareDir" => 0,
