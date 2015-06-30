@@ -263,8 +263,7 @@
                      "README.pod",
                      "CONTRIBUTING.mkdn",
                      "LICENSE",
-                     "Makefile.PL",
-                     "CONTRIBUTING.pod"
+                     "Makefile.PL"
                   ],
                   "exclude_match" : [],
                   "follow_symlinks" : "0",

@@ -55,6 +55,10 @@ has '+source_filename' => (
 
 around dump_config => config_dumper( __PACKAGE__, qw( document_version ), );
 
+## NB: The following lines of garbage is what you have to do to use a thing that gathers files
+## but have it appear on disk, and not in the release.
+## This file *cannot* appear in the release because EUMM is stupid and installs *.pod files
+## In the root directory.
 has '_secret_stash' => (
   isa     => 'ArrayRef',
   is      => 'ro',
@@ -73,6 +77,7 @@ sub prune_files {
 sub after_build {
   my ($self) = @_;
   for my $file ( (), @{ $self->_secret_stash } ) {
+
     # Appropriated from Dist::Zilla::write_out_file
     # Okay, this is a bit much, until we have ->debug. -- rjbs, 2008-06-13
     # $self->log("writing out " . $file->name);
