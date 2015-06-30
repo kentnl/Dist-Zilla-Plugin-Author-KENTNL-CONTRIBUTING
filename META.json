@@ -134,7 +134,7 @@
    "provides" : {
       "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
          "file" : "lib/Dist/Zilla/Plugin/Author/KENTNL/CONTRIBUTING.pm",
-         "version" : "0.001003"
+         "version" : "0.001004"
       }
    },
    "release_status" : "stable",
@@ -149,7 +149,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING"
       }
    },
-   "version" : "0.001003",
+   "version" : "0.001004",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -321,7 +321,7 @@
                }
             },
             "name" : "@Author::KENTNL/Author::KENTNL::CONTRIBUTING",
-            "version" : "0.001003"
+            "version" : "0.001004"
          },
          {
             "class" : "Dist::Zilla::Plugin::CopyFilesFromBuild",
@@ -664,7 +664,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "0.001003-source",
+                  "tag" : "0.001004-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -740,7 +740,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "0.001003",
+                  "tag" : "0.001004",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"

@@ -21,7 +21,7 @@ name: Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 provides:
   Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING:
     file: lib/Dist/Zilla/Plugin/Author/KENTNL/CONTRIBUTING.pm
-    version: '0.001003'
+    version: '0.001004'
 recommends:
   Moose: '2.000'
   Path::Tiny: '0.058'
@@ -41,4 +41,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING.git
-version: '0.001003'
+version: '0.001004'
