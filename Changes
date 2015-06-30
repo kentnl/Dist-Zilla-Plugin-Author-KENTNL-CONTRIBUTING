@@ -1,6 +1,6 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
-0.001003 2015-06-30T05:44:04Z 3bb62b2
+0.001003 2015-06-30T05:47:08Z aafd8ba
  [Dependencies::Stats]
  - Dependencies changed since 0.001002, see misc/*.deps* for details
  - develop: (suggests: ↑1)
