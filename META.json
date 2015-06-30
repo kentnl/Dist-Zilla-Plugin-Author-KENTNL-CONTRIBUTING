@@ -110,8 +110,6 @@
             "Moose" : "0",
             "Moose::Util::TypeConstraints" : "0",
             "Path::Tiny" : "0",
-            "Pod::Markdown" : "2.000",
-            "Pod::Text" : "0",
             "perl" : "5.006",
             "strict" : "0",
             "warnings" : "0"
@@ -317,13 +315,13 @@
             "config" : {
                "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
                   "document_version" : "0.1",
-                  "filename" : "CONTRIBUTING.mkdn",
-                  "format" : "mkdn"
+                  "filename" : "CONTRIBUTING.pod"
                },
                "Dist::Zilla::Plugin::GenerateFile::ShareDir" : {
-                  "destination_filename" : "CONTRIBUTING.mkdn",
+                  "destination_filename" : "CONTRIBUTING.pod",
                   "dist" : "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
                   "encoding" : "UTF-8",
+                  "format" : "mkdn",
                   "source_filename" : "contributing-0.1.pod"
                }
             },

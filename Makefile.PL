@@ -32,8 +32,6 @@ my %WriteMakefileArgs = (
     "Moose" => 0,
     "Moose::Util::TypeConstraints" => 0,
     "Path::Tiny" => 0,
-    "Pod::Markdown" => "2.000",
-    "Pod::Text" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -60,8 +58,6 @@ my %FallbackPrereqs = (
   "Moose" => 0,
   "Moose::Util::TypeConstraints" => 0,
   "Path::Tiny" => 0,
-  "Pod::Markdown" => "2.000",
-  "Pod::Text" => 0,
   "Test::More" => "0.89",
   "strict" => 0,
   "warnings" => 0
