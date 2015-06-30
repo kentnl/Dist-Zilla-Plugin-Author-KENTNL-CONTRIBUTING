@@ -23,20 +23,6 @@ Valid values:
 
     [0.1]
 
-## `format`
-
-Document format to emit.
-
-Valid values:
-
-    pod [mkdn] txt
-
-## `filename`
-
-The file name to create.
-
-Defaults to `CONTRIBUTING` with an extension based on the value of ["format"](#format)
-
 # AUTHOR
 
 Kent Fredric <kentnl@cpan.org>

@@ -1,6 +1,16 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
 0.001003
+ [Added / runtime requires]
+ - Dist::Zilla::Plugin::GenerateFile::ShareDir
+
+ [Removed / runtime requires]
+ - Carp
+ - Dist::Zilla::Role::AfterBuild
+ - File::ShareDir
+ - Path::Tiny
+ - Pod::Markdown 2.000
+ - Pod::Text
 
 0.001002 2015-06-30T02:08:26Z
  [Added / configure requires]
