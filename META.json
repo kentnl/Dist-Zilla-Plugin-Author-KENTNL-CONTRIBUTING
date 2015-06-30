@@ -186,6 +186,23 @@
             "version" : "5.037"
          },
          {
+            "class" : "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
+            "config" : {
+               "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
+                  "document_version" : "0.1",
+                  "filename" : "CONTRIBUTING.pod"
+               },
+               "Dist::Zilla::Plugin::GenerateFile::ShareDir" : {
+                  "destination_filename" : "CONTRIBUTING.pod",
+                  "dist" : "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
+                  "encoding" : "UTF-8",
+                  "source_filename" : "contributing-0.1.pod"
+               }
+            },
+            "name" : "Author::KENTNL::CONTRIBUTING",
+            "version" : "0.001003"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
             "name" : "@Author::KENTNL/MetaConfig",
             "version" : "5.037"
@@ -806,23 +823,6 @@
             },
             "name" : "@Author::KENTNL/::Role::BundleDeps",
             "version" : "5.037"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
-            "config" : {
-               "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
-                  "document_version" : "0.1",
-                  "filename" : "CONTRIBUTING.pod"
-               },
-               "Dist::Zilla::Plugin::GenerateFile::ShareDir" : {
-                  "destination_filename" : "CONTRIBUTING.pod",
-                  "dist" : "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
-                  "encoding" : "UTF-8",
-                  "source_filename" : "contributing-0.1.pod"
-               }
-            },
-            "name" : "Author::KENTNL::CONTRIBUTING",
-            "version" : "0.001003"
          },
          {
             "class" : "Dist::Zilla::Plugin::RemovePrereqs::Provided",
