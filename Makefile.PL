@@ -6,11 +6,18 @@ use 5.006;
 
 use ExtUtils::MakeMaker;
 
+use File::ShareDir::Install;
+$File::ShareDir::Install::INCLUDE_DOTFILES = 1;
+$File::ShareDir::Install::INCLUDE_DOTDIRS = 1;
+install_share dist => "share";
+
+
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Generates a CONTRIBUTING file for KENTNL's distributions.",
   "AUTHOR" => "Kent Fredric <kentnl\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => 0
+    "ExtUtils::MakeMaker" => 0,
+    "File::ShareDir::Install" => "0.06"
   },
   "DISTNAME" => "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
   "EXE_FILES" => [],
@@ -48,6 +55,7 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Util::ConfigDumper" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::ShareDir" => 0,
+  "File::ShareDir::Install" => "0.06",
   "File::Spec" => 0,
   "Moose" => 0,
   "Moose::Util::TypeConstraints" => 0,
@@ -70,3 +78,9 @@ delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
   unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
 
 WriteMakefile(%WriteMakefileArgs);
+
+{
+package
+MY;
+use File::ShareDir::Install qw(postamble);
+}
