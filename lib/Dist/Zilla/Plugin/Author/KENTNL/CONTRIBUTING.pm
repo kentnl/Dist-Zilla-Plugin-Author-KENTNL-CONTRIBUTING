@@ -65,6 +65,9 @@ has '_secret_stash' => (
   default => sub { [] },
 );
 
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
 sub prune_files {
   my ($self) = @_;
   for my $file ( (), @{ $self->zilla->files } ) {
@@ -93,9 +96,6 @@ sub after_build {
     chmod $file->mode, "$to" or die "couldn't chmod $to: $!";
   }
 }
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
 
 1;
 
