@@ -37,6 +37,8 @@
 
 =back
 
+=item * L</CREDITS>
+
 =back
 
 =head1 HOW TO CONTRIBUTE
@@ -198,3 +200,7 @@ building my dists:
 
     Dist::Zilla::PluginBundle::Author::KENTNL
     Dist::Zilla::App::Command::bakeini
+
+=head1 CREDITS
+
+This file was adapted from an initial C<CONTRIBUTING.mkdn> file from David Golden under the terms of the Apache 2 license.

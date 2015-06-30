@@ -1,6 +1,9 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
 {{$NEXT}}
+ [Content]
+ - Credit original author in emitted file.
+
 
 0.001000 2015-06-29T23:35:19Z 9e726b2
  - First version.
