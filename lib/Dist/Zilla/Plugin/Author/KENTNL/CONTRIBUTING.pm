@@ -15,10 +15,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 # without changing their API version
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
-use Carp qw( croak );
-use Moose qw( with has around extends );
-use Path::Tiny qw( path );
-use File::ShareDir qw( dist_dir );
+use Moose qw( has around extends );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 
@@ -38,7 +35,6 @@ no Moose::Util::TypeConstraints;
 
 
 
-
 has 'document_version' => (
   isa     => $valid_version_enum,
   is      => 'ro',
@@ -46,12 +42,12 @@ has 'document_version' => (
 );
 
 has '+filename' => (
-  lazy => 1,
+  lazy    => 1,
   default => sub { 'CONTRIBUTING.pod' },
 );
 
 has '+source_filename' => (
-  lazy => 1,
+  lazy    => 1,
   default => sub { 'contributing-' . $_[0]->document_version . '.pod' },
 );
 
