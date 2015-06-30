@@ -1,20 +1,18 @@
 This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL dependencies for all phases (configure/build/runtime/test/develop)
 
 0.001003
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::GenerateFile::ShareDir
+
  [Added / runtime requires]
  - Dist::Zilla::Plugin::GenerateFile::ShareDir
+ - Dist::Zilla::Role::FilePruner
 
  [Changed / develop suggests]
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.024002 → 2.025000
 
- [Removed / runtime recommends]
- - Path::Tiny 0.058
-
  [Removed / runtime requires]
- - Carp
- - Dist::Zilla::Role::AfterBuild
  - File::ShareDir
- - Path::Tiny
  - Pod::Markdown 2.000
  - Pod::Text
 
