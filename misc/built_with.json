@@ -56,6 +56,7 @@
       "Dist::Zilla::Plugin::TestRelease" : "5.037",
       "Dist::Zilla::Plugin::Twitter" : "0.026",
       "Dist::Zilla::Plugin::UploadToCPAN" : "5.037",
+      "Dist::Zilla::Plugin::if::ENV" : "0.001000",
       "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.025000",
       "Dist::Zilla::Role::AfterBuild" : "5.037",
       "Dist::Zilla::Role::FilePruner" : "5.037",

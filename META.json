@@ -83,6 +83,7 @@
             "Dist::Zilla::Plugin::TestRelease" : "0",
             "Dist::Zilla::Plugin::Twitter" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
+            "Dist::Zilla::Plugin::if::ENV" : "0",
             "Pod::Coverage::TrustPod" : "0",
             "Pod::Weaver::Section::Contributors" : "0",
             "Test::CPAN::Changes" : "0.19",
@@ -314,19 +315,24 @@
             "version" : "0.001002"
          },
          {
-            "class" : "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
+            "class" : "Dist::Zilla::Plugin::if::ENV",
             "config" : {
-               "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
-                  "document_version" : "0.1"
+               "Dist::Zilla::Plugin::if::ENV" : {
+                  "key" : "MAINTAINER_MODE"
                }
             },
-            "name" : "@Author::KENTNL/Author::KENTNL::CONTRIBUTING",
-            "version" : "0.001004"
+            "name" : "@Author::KENTNL/if::ENV/Author::KENTNL::CONTRIBUTING",
+            "version" : "0.001000"
          },
          {
-            "class" : "Dist::Zilla::Plugin::CopyFilesFromBuild",
-            "name" : "@Author::KENTNL/CopyXBuild",
-            "version" : "0.151680"
+            "class" : "Dist::Zilla::Plugin::if::ENV",
+            "config" : {
+               "Dist::Zilla::Plugin::if::ENV" : {
+                  "key" : "MAINTAINER_MODE"
+               }
+            },
+            "name" : "@Author::KENTNL/if::ENV/CopyXBuild",
+            "version" : "0.001000"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaTests",
