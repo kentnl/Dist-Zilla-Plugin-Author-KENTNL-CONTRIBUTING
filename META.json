@@ -315,6 +315,16 @@
             "version" : "0.001002"
          },
          {
+            "class" : "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
+            "config" : {
+               "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
+                  "document_version" : "0.1"
+               }
+            },
+            "name" : "@Author::KENTNL/Author::KENTNL::CONTRIBUTING",
+            "version" : "0.001004"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::if::ENV",
             "config" : {
                "Dist::Zilla::Plugin::if::ENV" : {
@@ -323,6 +333,11 @@
             },
             "name" : "@Author::KENTNL/if::ENV/Author::KENTNL::CONTRIBUTING",
             "version" : "0.001000"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::CopyFilesFromBuild",
+            "name" : "@Author::KENTNL/CopyXBuild",
+            "version" : "0.151680"
          },
          {
             "class" : "Dist::Zilla::Plugin::if::ENV",
