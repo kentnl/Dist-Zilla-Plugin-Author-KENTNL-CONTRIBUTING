@@ -1,6 +1,8 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
-0.001004
+0.001005
+
+0.001004 2015-07-05T06:07:52Z
  [Changed / runtime requires]
  - Dist::Zilla::Plugin::GenerateFile::ShareDir 0 → 0.006
 
