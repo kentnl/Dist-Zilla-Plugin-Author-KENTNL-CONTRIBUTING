@@ -83,7 +83,6 @@
             "Dist::Zilla::Plugin::TestRelease" : "0",
             "Dist::Zilla::Plugin::Twitter" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
-            "Dist::Zilla::Plugin::if::ENV" : "0",
             "Pod::Coverage::TrustPod" : "0",
             "Pod::Weaver::Section::Contributors" : "0",
             "Test::CPAN::Changes" : "0.19",
@@ -96,7 +95,7 @@
          },
          "suggests" : {
             "Dist::Zilla::App::Command::bakeini" : "0.002005",
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.025000"
+            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.025001"
          }
       },
       "runtime" : {
@@ -106,9 +105,7 @@
          },
          "requires" : {
             "Carp" : "0",
-            "Dist::Zilla::Plugin::GenerateFile::ShareDir" : "0",
-            "Dist::Zilla::Role::AfterBuild" : "0",
-            "Dist::Zilla::Role::FilePruner" : "0",
+            "Dist::Zilla::Plugin::GenerateFile::ShareDir" : "0.006",
             "Dist::Zilla::Util::ConfigDumper" : "0",
             "Moose" : "0",
             "Moose::Util::TypeConstraints" : "0",
@@ -264,7 +261,7 @@
                      "README",
                      "README.mkdn",
                      "README.pod",
-                     "CONTRIBUTING.mkdn",
+                     "CONTRIBUTING.pod",
                      "LICENSE",
                      "Makefile.PL",
                      "CONTRIBUTING.pod"
@@ -319,35 +316,23 @@
             "config" : {
                "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
                   "document_version" : "0.1"
+               },
+               "Dist::Zilla::Plugin::GenerateFile::ShareDir" : {
+                  "destination_filename" : "CONTRIBUTING.pod",
+                  "dist" : "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
+                  "encoding" : "UTF-8",
+                  "location" : "root",
+                  "phase" : "build",
+                  "source_filename" : "contributing-0.1.pod"
                }
             },
             "name" : "@Author::KENTNL/Author::KENTNL::CONTRIBUTING",
             "version" : "0.001004"
          },
          {
-            "class" : "Dist::Zilla::Plugin::if::ENV",
-            "config" : {
-               "Dist::Zilla::Plugin::if::ENV" : {
-                  "key" : "MAINTAINER_MODE"
-               }
-            },
-            "name" : "@Author::KENTNL/if::ENV/Author::KENTNL::CONTRIBUTING",
-            "version" : "0.001000"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::CopyFilesFromBuild",
             "name" : "@Author::KENTNL/CopyXBuild",
             "version" : "0.151680"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::if::ENV",
-            "config" : {
-               "Dist::Zilla::Plugin::if::ENV" : {
-                  "key" : "MAINTAINER_MODE"
-               }
-            },
-            "name" : "@Author::KENTNL/if::ENV/CopyXBuild",
-            "version" : "0.001000"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaTests",

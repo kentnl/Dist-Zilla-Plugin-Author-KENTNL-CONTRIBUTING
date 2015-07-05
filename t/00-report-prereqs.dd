@@ -68,7 +68,6 @@ do { my $x = {
                                       'Dist::Zilla::Plugin::TestRelease' => '0',
                                       'Dist::Zilla::Plugin::Twitter' => '0',
                                       'Dist::Zilla::Plugin::UploadToCPAN' => '0',
-                                      'Dist::Zilla::Plugin::if::ENV' => '0',
                                       'Pod::Coverage::TrustPod' => '0',
                                       'Pod::Weaver::Section::Contributors' => '0',
                                       'Test::CPAN::Changes' => '0.19',
@@ -81,7 +80,7 @@ do { my $x = {
                                     },
                       'suggests' => {
                                       'Dist::Zilla::App::Command::bakeini' => '0.002005',
-                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.025000'
+                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.025001'
                                     }
                     },
        'runtime' => {
@@ -91,9 +90,7 @@ do { my $x = {
                                       },
                       'requires' => {
                                       'Carp' => '0',
-                                      'Dist::Zilla::Plugin::GenerateFile::ShareDir' => '0',
-                                      'Dist::Zilla::Role::AfterBuild' => '0',
-                                      'Dist::Zilla::Role::FilePruner' => '0',
+                                      'Dist::Zilla::Plugin::GenerateFile::ShareDir' => '0.006',
                                       'Dist::Zilla::Util::ConfigDumper' => '0',
                                       'Moose' => '0',
                                       'Moose::Util::TypeConstraints' => '0',
