@@ -1,6 +1,6 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
-0.001004 2015-07-05T06:05:55Z 2d5f231
+0.001004 2015-07-05T06:07:52Z 0f96d87
  [Dependencies::Stats]
  - Dependencies changed since 0.001003, see misc/*.deps* for details
  - develop: (suggests: ↑1)
@@ -8,6 +8,10 @@ Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
  [Features]
  - Reimplemented some remaning parts to just use new features in GenerateFile::ShareDir 0.006
+
+ [Todo]
+ - Eliminate need for this module at some point without needing my bundle also somehow with some intermediary magic
+   that will just call GF:SD outside the normal dzil things(!??)
 
 0.001003 2015-06-30T05:57:29Z 56a04ee
  [Dependencies::Stats]
