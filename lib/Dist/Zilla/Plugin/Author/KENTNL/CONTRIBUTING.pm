@@ -17,12 +17,12 @@ my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
 use Carp qw( croak );
 use Path::Tiny qw( path );
-use Moose qw( has around extends with );
+use Moose qw( has around extends );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
+use Dist::Zilla::Plugin::GenerateFile::ShareDir 0.006;
 
 extends 'Dist::Zilla::Plugin::GenerateFile::ShareDir';
-with 'Dist::Zilla::Role::FilePruner', 'Dist::Zilla::Role::AfterBuild';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
@@ -54,59 +54,20 @@ has '+source_filename' => (
   default => sub { 'contributing-' . $_[0]->document_version . '.pod' },
 );
 
-around dump_config => config_dumper( __PACKAGE__, qw( document_version ), );
-
-## NB: The following lines of garbage is what you have to do to use a thing that gathers files
-## but have it appear on disk, and not in the release.
-## This file *cannot* appear in the release because EUMM is stupid and installs *.pod files
-## In the root directory.
-has '_secret_stash' => (
-  isa     => 'ArrayRef',
-  is      => 'ro',
-  default => sub { [] },
+has '+location' => (
+  lazy    => 1,
+  default => sub { 'root' },
 );
+
+has '+phase' => (
+  lazy    => 1,
+  default => sub { 'build' },
+);
+
+around dump_config => config_dumper( __PACKAGE__, qw( document_version ), );
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
-
-# DGAF
-
-=for Pod::Coverage prune_files after_build
-
-=cut
-
-sub prune_files {
-  my ($self) = @_;
-  for my $file ( (), @{ $self->zilla->files } ) {
-    next unless $file->name eq $self->filename;
-    $self->log_debug( [ 'Stashing %s ( %s )', $file->name, $file ] );
-    push @{ $self->_secret_stash }, $file;
-    $self->zilla->prune_file($file);
-  }
-  return;
-}
-
-sub after_build {
-  my ($self) = @_;
-  for my $file ( (), @{ $self->_secret_stash } ) {
-
-    # Appropriated from Dist::Zilla::write_out_file
-    # Okay, this is a bit much, until we have ->debug. -- rjbs, 2008-06-13
-    # $self->log("writing out " . $file->name);
-
-    my $file_path = path( $file->name );
-    my $to        = path( $self->zilla->root )->child($file_path);
-    my $to_dir    = $to->parent;
-    $to_dir->mkpath unless -e $to_dir;
-
-    croak "not a directory: $to_dir" unless -d $to_dir;
-
-    $self->log_debug("Overwriting $to");
-    $to->spew_raw( $file->encoded_content );
-    chmod $file->mode, "$to" or croak "couldn't chmod $to: $!";
-  }
-  return;
-}
 
 1;
 
