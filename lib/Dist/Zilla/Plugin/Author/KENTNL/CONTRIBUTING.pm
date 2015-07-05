@@ -15,8 +15,6 @@ our $VERSION = '0.001005';
 # without changing their API version
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
-use Carp qw( croak );
-use Path::Tiny qw( path );
 use Moose qw( has around extends );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
