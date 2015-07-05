@@ -85,16 +85,13 @@ do { my $x = {
                     },
        'runtime' => {
                       'recommends' => {
-                                        'Moose' => '2.000',
-                                        'Path::Tiny' => '0.058'
+                                        'Moose' => '2.000'
                                       },
                       'requires' => {
-                                      'Carp' => '0',
                                       'Dist::Zilla::Plugin::GenerateFile::ShareDir' => '0.006',
                                       'Dist::Zilla::Util::ConfigDumper' => '0',
                                       'Moose' => '0',
                                       'Moose::Util::TypeConstraints' => '0',
-                                      'Path::Tiny' => '0',
                                       'perl' => '5.006',
                                       'strict' => '0',
                                       'warnings' => '0'
