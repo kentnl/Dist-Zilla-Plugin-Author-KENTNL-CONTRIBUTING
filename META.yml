@@ -21,15 +21,13 @@ name: Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 provides:
   Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING:
     file: lib/Dist/Zilla/Plugin/Author/KENTNL/CONTRIBUTING.pm
-    version: '0.001003'
+    version: '0.001004'
 recommends:
   Moose: '2.000'
   Path::Tiny: '0.058'
 requires:
   Carp: '0'
-  Dist::Zilla::Plugin::GenerateFile::ShareDir: '0'
-  Dist::Zilla::Role::AfterBuild: '0'
-  Dist::Zilla::Role::FilePruner: '0'
+  Dist::Zilla::Plugin::GenerateFile::ShareDir: '0.006'
   Dist::Zilla::Util::ConfigDumper: '0'
   Moose: '0'
   Moose::Util::TypeConstraints: '0'
@@ -41,4 +39,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING.git
-version: '0.001003'
+version: '0.001004'

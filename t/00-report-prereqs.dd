@@ -80,7 +80,7 @@ do { my $x = {
                                     },
                       'suggests' => {
                                       'Dist::Zilla::App::Command::bakeini' => '0.002005',
-                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.025000'
+                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.025001'
                                     }
                     },
        'runtime' => {
@@ -90,9 +90,7 @@ do { my $x = {
                                       },
                       'requires' => {
                                       'Carp' => '0',
-                                      'Dist::Zilla::Plugin::GenerateFile::ShareDir' => '0',
-                                      'Dist::Zilla::Role::AfterBuild' => '0',
-                                      'Dist::Zilla::Role::FilePruner' => '0',
+                                      'Dist::Zilla::Plugin::GenerateFile::ShareDir' => '0.006',
                                       'Dist::Zilla::Util::ConfigDumper' => '0',
                                       'Moose' => '0',
                                       'Moose::Util::TypeConstraints' => '0',

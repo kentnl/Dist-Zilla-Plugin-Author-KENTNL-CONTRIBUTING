@@ -95,7 +95,7 @@
          },
          "suggests" : {
             "Dist::Zilla::App::Command::bakeini" : "0.002005",
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.025000"
+            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.025001"
          }
       },
       "runtime" : {
@@ -105,9 +105,7 @@
          },
          "requires" : {
             "Carp" : "0",
-            "Dist::Zilla::Plugin::GenerateFile::ShareDir" : "0",
-            "Dist::Zilla::Role::AfterBuild" : "0",
-            "Dist::Zilla::Role::FilePruner" : "0",
+            "Dist::Zilla::Plugin::GenerateFile::ShareDir" : "0.006",
             "Dist::Zilla::Util::ConfigDumper" : "0",
             "Moose" : "0",
             "Moose::Util::TypeConstraints" : "0",
@@ -134,7 +132,7 @@
    "provides" : {
       "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
          "file" : "lib/Dist/Zilla/Plugin/Author/KENTNL/CONTRIBUTING.pm",
-         "version" : "0.001003"
+         "version" : "0.001004"
       }
    },
    "release_status" : "stable",
@@ -149,7 +147,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING"
       }
    },
-   "version" : "0.001003",
+   "version" : "0.001004",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -263,7 +261,7 @@
                      "README",
                      "README.mkdn",
                      "README.pod",
-                     "CONTRIBUTING.mkdn",
+                     "CONTRIBUTING.pod",
                      "LICENSE",
                      "Makefile.PL",
                      "CONTRIBUTING.pod"
@@ -318,10 +316,18 @@
             "config" : {
                "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING" : {
                   "document_version" : "0.1"
+               },
+               "Dist::Zilla::Plugin::GenerateFile::ShareDir" : {
+                  "destination_filename" : "CONTRIBUTING.pod",
+                  "dist" : "Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING",
+                  "encoding" : "UTF-8",
+                  "location" : "root",
+                  "phase" : "build",
+                  "source_filename" : "contributing-0.1.pod"
                }
             },
             "name" : "@Author::KENTNL/Author::KENTNL::CONTRIBUTING",
-            "version" : "0.001003"
+            "version" : "0.001004"
          },
          {
             "class" : "Dist::Zilla::Plugin::CopyFilesFromBuild",
@@ -664,7 +670,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "0.001003-source",
+                  "tag" : "0.001004-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -740,7 +746,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "0.001003",
+                  "tag" : "0.001004",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"

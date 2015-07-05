@@ -26,9 +26,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
   "PREREQ_PM" => {
     "Carp" => 0,
-    "Dist::Zilla::Plugin::GenerateFile::ShareDir" => 0,
-    "Dist::Zilla::Role::AfterBuild" => 0,
-    "Dist::Zilla::Role::FilePruner" => 0,
+    "Dist::Zilla::Plugin::GenerateFile::ShareDir" => "0.006",
     "Dist::Zilla::Util::ConfigDumper" => 0,
     "Moose" => 0,
     "Moose::Util::TypeConstraints" => 0,
@@ -41,7 +39,7 @@ my %WriteMakefileArgs = (
     "File::Spec" => 0,
     "Test::More" => "0.89"
   },
-  "VERSION" => "0.001003",
+  "VERSION" => "0.001004",
   "test" => {
     "TESTS" => "t/*.t t/00-compile/*.t"
   }
@@ -50,9 +48,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Carp" => 0,
-  "Dist::Zilla::Plugin::GenerateFile::ShareDir" => 0,
-  "Dist::Zilla::Role::AfterBuild" => 0,
-  "Dist::Zilla::Role::FilePruner" => 0,
+  "Dist::Zilla::Plugin::GenerateFile::ShareDir" => "0.006",
   "Dist::Zilla::Util::ConfigDumper" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::ShareDir::Install" => "0.06",
