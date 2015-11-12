@@ -31,4 +31,4 @@ Git::GatherDir.exclude_filename = CONTRIBUTING.pod
 
 [Prereqs]
 ;authordep Pod::Weaver::Section::Contributors = 0
-;authordep Dist::Zilla::Plugin::GenerateFile::ShareDir = 0
+;authordep Dist::Zilla::Plugin::GenerateFile::ShareDir = 0.006
