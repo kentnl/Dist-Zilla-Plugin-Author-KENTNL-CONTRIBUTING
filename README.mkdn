@@ -27,9 +27,10 @@ Valid values:
 
 Kent Fredric &lt;kentnl@cpan.org>
 
-# CONTRIBUTOR
+# CONTRIBUTORS
 
-David Golden &lt;dagolden@cpan.org>
+- David Golden &lt;dagolden@cpan.org>
+- Karen Etheridge &lt;ether@cpan.org>
 
 # COPYRIGHT AND LICENSE
 

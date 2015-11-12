@@ -18,9 +18,9 @@ my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 use Moose qw( has around extends );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
-use Dist::Zilla::Plugin::GenerateFile::ShareDir 0.006;
+use Dist::Zilla::Plugin::GenerateFile::FromShareDir 0.006;
 
-extends 'Dist::Zilla::Plugin::GenerateFile::ShareDir';
+extends 'Dist::Zilla::Plugin::GenerateFile::FromShareDir';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 

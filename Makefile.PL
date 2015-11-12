@@ -24,7 +24,7 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING",
   "PREREQ_PM" => {
-    "Dist::Zilla::Plugin::GenerateFile::ShareDir" => "0.006",
+    "Dist::Zilla::Plugin::GenerateFile::FromShareDir" => "0.006",
     "Dist::Zilla::Util::ConfigDumper" => 0,
     "Moose" => 0,
     "Moose::Util::TypeConstraints" => 0,
@@ -44,7 +44,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Dist::Zilla::Plugin::GenerateFile::ShareDir" => "0.006",
+  "Dist::Zilla::Plugin::GenerateFile::FromShareDir" => "0.006",
   "Dist::Zilla::Util::ConfigDumper" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,

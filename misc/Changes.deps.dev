@@ -2,6 +2,7 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
 
 0.001005
  [Added / develop requires]
+ - Dist::Zilla::Plugin::GenerateFile::FromShareDir 0.006
  - English
  - Software::License::Perl_5
 
@@ -10,6 +11,9 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
 
  [Changed / develop suggests]
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.025001 → 2.025003
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::GenerateFile::ShareDir
 
 0.001004 2015-07-05T06:07:52Z
  [Changed / develop suggests]
