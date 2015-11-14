@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
-0.001005 2015-11-14T04:19:01Z 33c3b26
+0.001005 2015-11-14T04:22:55Z 6a9c68e
+ - switched from [GenerateFile::ShareDir] to [GenerateFile::FromShareDir]
+
  [Dependencies::Stats]
  - Dependencies changed since 0.001004, see misc/*.deps* for details
  - develop: +2 ↑1 (suggests: ↑1)

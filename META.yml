@@ -25,7 +25,7 @@ provides:
 recommends:
   Moose: '2.000'
 requires:
-  Dist::Zilla::Plugin::GenerateFile::ShareDir: '0.006'
+  Dist::Zilla::Plugin::GenerateFile::FromShareDir: '0.006'
   Dist::Zilla::Util::ConfigDumper: '0'
   Moose: '0'
   Moose::Util::TypeConstraints: '0'

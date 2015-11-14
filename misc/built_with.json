@@ -12,7 +12,7 @@
       "Dist::Zilla::Plugin::BumpVersionAfterRelease" : "0.012",
       "Dist::Zilla::Plugin::ConfirmRelease" : "5.041",
       "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0.151680",
-      "Dist::Zilla::Plugin::GenerateFile::ShareDir" : "0.009",
+      "Dist::Zilla::Plugin::GenerateFile::FromShareDir" : "0.009",
       "Dist::Zilla::Plugin::Git::Check" : "2.036",
       "Dist::Zilla::Plugin::Git::Commit" : "2.036",
       "Dist::Zilla::Plugin::Git::CommitBuild" : "2.036",
