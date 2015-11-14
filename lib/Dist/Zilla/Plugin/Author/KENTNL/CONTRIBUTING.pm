@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING;
 
-our $VERSION = '0.001005';
+our $VERSION = '0.001006';
 
 # ABSTRACT: Generates a CONTRIBUTING file for KENTNL's distributions.
 
@@ -81,7 +81,7 @@ Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING - Generates a CONTRIBUTING fil
 
 =head1 VERSION
 
-version 0.001005
+version 0.001006
 
 =head1 DESCRIPTION
 
