@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING;
 
-our $VERSION = '0.001004';
+our $VERSION = '0.001005';
 
 # ABSTRACT: Generates a CONTRIBUTING file for KENTNL's distributions.
 
@@ -15,14 +15,12 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 # without changing their API version
 my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
-use Carp qw( croak );
-use Path::Tiny qw( path );
 use Moose qw( has around extends );
 use Moose::Util::TypeConstraints qw( enum );
 use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
-use Dist::Zilla::Plugin::GenerateFile::ShareDir 0.006;
+use Dist::Zilla::Plugin::GenerateFile::FromShareDir 0.006;
 
-extends 'Dist::Zilla::Plugin::GenerateFile::ShareDir';
+extends 'Dist::Zilla::Plugin::GenerateFile::FromShareDir';
 
 my $valid_version_enum = enum [ keys %{$valid_versions} ];
 
@@ -83,7 +81,7 @@ Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING - Generates a CONTRIBUTING fil
 
 =head1 VERSION
 
-version 0.001004
+version 0.001005
 
 =head1 DESCRIPTION
 
@@ -106,11 +104,21 @@ Valid values:
 
 Kent Fredric <kentnl@cpan.org>
 
-=head1 CONTRIBUTOR
+=head1 CONTRIBUTORS
 
-=for stopwords David Golden
+=for stopwords David Golden Karen Etheridge
+
+=over 4
+
+=item *
 
 David Golden <dagolden@cpan.org>
+
+=item *
+
+Karen Etheridge <ether@cpan.org>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
