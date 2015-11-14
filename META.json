@@ -943,7 +943,8 @@
    },
    "x_authority" : "cpan:KENTNL",
    "x_contributors" : [
-      "David Golden <dagolden@cpan.org>"
+      "David Golden <dagolden@cpan.org>",
+      "Karen Etheridge <ether@cpan.org>"
    ]
 }
 
