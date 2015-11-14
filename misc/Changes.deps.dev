@@ -1,6 +1,8 @@
 This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and OPTIONAL )
 
-0.001005
+0.001006
+
+0.001005 2015-11-14T04:44:40Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::GenerateFile::FromShareDir 0.006
  - English
