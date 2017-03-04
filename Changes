@@ -1,6 +1,6 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
-0.001006 2017-03-04T01:17:27Z 542a826
+0.001006 2017-03-04T01:21:44Z 48557a0
  [Bugfix]
  - Avoid test failures on 5.26 w/ -Ddefault_inc_excludes_dot
  - Closes https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING/issues/2
@@ -8,7 +8,11 @@ Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
  [Dependencies::Stats]
  - Dependencies changed since 0.001005, see misc/*.deps* for details
  - develop: +1 ↑1 (suggests: ↑1)
+ - runtime: -1
  - test: ↓1
+
+ [Internals]
+ - Drop ConfigDumper
 
 0.001005 2015-11-14T04:44:40Z 09c7edb
  - switched from [GenerateFile::ShareDir] to [GenerateFile::FromShareDir], closes #1
