@@ -4,6 +4,9 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  [Changed / test requires]
  - Test::More 0.89 → 0
 
+ [Removed / runtime requires]
+ - Dist::Zilla::Util::ConfigDumper
+
 0.001005 2015-11-14T04:44:40Z
  [Added / runtime requires]
  - Dist::Zilla::Plugin::GenerateFile::FromShareDir 0.006
