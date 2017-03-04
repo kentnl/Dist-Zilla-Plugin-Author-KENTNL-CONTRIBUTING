@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING
 
 {{$NEXT}}
+
+0.001006 2017-03-04T01:21:44Z 48557a0
  [Bugfix]
  - Avoid test failures on 5.26 w/ -Ddefault_inc_excludes_dot
  - Closes https://github.com/kentnl/Dist-Zilla-Plugin-Author-KENTNL-CONTRIBUTING/issues/2
