@@ -59,7 +59,7 @@ do { my $x = {
                                       'Dist::Zilla::Plugin::RunExtraTests' => '0',
                                       'Dist::Zilla::Plugin::ShareDir' => '0',
                                       'Dist::Zilla::Plugin::Test::CPAN::Changes' => '0',
-                                      'Dist::Zilla::Plugin::Test::Compile::PerFile' => '0',
+                                      'Dist::Zilla::Plugin::Test::Compile::PerFile' => '0.003902',
                                       'Dist::Zilla::Plugin::Test::EOL' => '0',
                                       'Dist::Zilla::Plugin::Test::Kwalitee' => '0',
                                       'Dist::Zilla::Plugin::Test::MinimumVersion' => '0',
@@ -76,13 +76,14 @@ do { my $x = {
                                       'Test::CPAN::Meta' => '0',
                                       'Test::EOL' => '0',
                                       'Test::Kwalitee' => '1.21',
+                                      'Test::MinimumVersion' => '0',
                                       'Test::More' => '0.96',
                                       'Test::Pod' => '1.41',
                                       'Test::Pod::Coverage' => '1.08'
                                     },
                       'suggests' => {
                                       'Dist::Zilla::App::Command::bakeini' => '0.002005',
-                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.025003'
+                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.025020'
                                     }
                     },
        'runtime' => {
@@ -91,7 +92,6 @@ do { my $x = {
                                       },
                       'requires' => {
                                       'Dist::Zilla::Plugin::GenerateFile::FromShareDir' => '0.006',
-                                      'Dist::Zilla::Util::ConfigDumper' => '0',
                                       'Moose' => '0',
                                       'Moose::Util::TypeConstraints' => '0',
                                       'perl' => '5.006',
@@ -108,7 +108,7 @@ do { my $x = {
                    'requires' => {
                                    'ExtUtils::MakeMaker' => '0',
                                    'File::Spec' => '0',
-                                   'Test::More' => '0.89',
+                                   'Test::More' => '0',
                                    'perl' => '5.006'
                                  }
                  }

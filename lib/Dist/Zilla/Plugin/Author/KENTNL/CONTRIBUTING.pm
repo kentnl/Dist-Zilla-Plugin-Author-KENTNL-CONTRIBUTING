@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING;
 
-our $VERSION = '0.001005';
+our $VERSION = '0.001006';
 
 # ABSTRACT: Generates a CONTRIBUTING file for KENTNL's distributions.
 
@@ -17,7 +17,6 @@ my $valid_versions = { map { $_ => 1 } qw( 0.1 ) };
 
 use Moose qw( has around extends );
 use Moose::Util::TypeConstraints qw( enum );
-use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 use Dist::Zilla::Plugin::GenerateFile::FromShareDir 0.006;
 
 extends 'Dist::Zilla::Plugin::GenerateFile::FromShareDir';
@@ -62,7 +61,18 @@ has '+phase' => (
   default => sub { 'build' },
 );
 
-around dump_config => config_dumper( __PACKAGE__, qw( document_version ), );
+around dump_config => sub {
+  my ( $orig, $self, @args ) = @_;
+  my $config = $self->$orig(@args);
+  my $localconf = $config->{ +__PACKAGE__ } = {};
+
+  $localconf->{document_version} = $self->document_version;
+
+  $localconf->{ q[$] . __PACKAGE__ . '::VERSION' } = $VERSION
+    unless __PACKAGE__ eq ref $self;
+
+  return $config;
+};
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
@@ -81,7 +91,7 @@ Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING - Generates a CONTRIBUTING fil
 
 =head1 VERSION
 
-version 0.001005
+version 0.001006
 
 =head1 DESCRIPTION
 
@@ -122,7 +132,7 @@ Karen Etheridge <ether@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
