@@ -24,6 +24,8 @@ srcreadme         = mkdn
 twitter_extra_hash_tags = #distzilla
 ; auto_prereqs_skip = File::Find
 Git::GatherDir.exclude_filename = CONTRIBUTING.pod
+Test::Compile::PerFile.:version = 0.003902
+Test::Compile::PerFile.test_template = 02-raw-require.t.tpl
 
 [RemovePrereqs::Provided]
 
